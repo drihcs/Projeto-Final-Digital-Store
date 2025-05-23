@@ -59,6 +59,7 @@
 .info-slide p {
   color: #474747;
   font-size: 1.125rem;
+  margin-top: -0.5rem;
 }
 
 .swiper-pagination-bullet {
