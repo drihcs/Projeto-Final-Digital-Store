@@ -1,0 +1,101 @@
+footer {
+  display: flex;
+  background-color: #1f1f1f;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.container-1 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.container-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  top: 60px;
+  left: 80px;
+}
+
+.text-container {
+  position: relative;
+  display: flex;
+  color: #fffefe;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  width: 300px;
+  margin-top: 1rem;
+  gap: 5px;
+  top: 80px;
+  left: 80px;
+}
+
+.icons-sociais {
+  display: flex;
+  position: relative;
+  gap: 35px;
+  top: 115px;
+  left: 80px;
+
+}
+
+.icons-sociais a {
+  transition: transform 0.5s;
+}
+
+.icons-sociais a:hover {
+  transform: scale(1.10);
+}
+
+.container-2 {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 4rem;
+  gap: 6.5rem;
+}
+
+
+.container-2 div {
+  display: flex;
+  color: #ffffff;
+  gap: 70px;
+}
+
+.title {
+  display: flex;
+  margin-bottom: 18px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.container-info :first-child {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  width: 90%;
+  margin: 2.5rem auto 10px;
+  border: none;
+  height: 1px;
+  background-color: #fffefe;
+  opacity: 0.3;
+}
+
+.data-footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  margin: 1rem 0;
+  font-size: 13px;
+  line-height: 24px;
+  color: #fffefe;
+}

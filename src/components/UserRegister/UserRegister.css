@@ -1,0 +1,137 @@
+.container {
+  background-color: #F9F8FE;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  color: #474747;
+}
+
+.container .criar-conta h3 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: #1F1F1F;
+  padding: 2rem 28rem 1rem 0;
+  width: 100%;
+  max-width: 750px;
+}
+
+.container .title-pessoal,
+.title-entrega {
+  padding: 2rem 0 2rem 2rem;
+  font-size: 14px;
+  margin: 0;
+}
+
+.container .linha {
+  width: 100%;
+  max-width: 680px;
+  height: 0.5px;
+  background-color: #CCCCCC;
+}
+
+.container .input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .input-group label {
+  color: #474747;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  margin-bottom: 4px;
+}
+
+.container .form-input-label1,
+.form-input-label2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 2rem 2rem 2rem;
+  border-radius: 8px;
+  margin-bottom: -30px;
+}
+
+.container .form-container1 {
+  background-color: #FFFFFF;
+  width: 750px;
+  height: 510px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.container .form-container2 {
+  background-color: #FFFFFF;
+  width: 750px;
+  height: 610px;
+  border-radius: 8px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  height: 50px;
+  background-color: #F5F5F5;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding-left: 1rem;
+  font-size: 16px;
+  color: #666666;
+  font-weight: normal;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #CCCCCC;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.container .container-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.container .container-checkbox .custon-checkbox {
+  width: 22px;
+  height: 22px;
+  accent-color: #C92071;
+  margin: 0 1rem 1rem 0;
+}
+
+.container .checkbox-input {
+  width: 22px;
+  height: 22px;
+}
+
+.container .container-checkbox .paragraph {
+  font-size: 14px;
+  font-weight: 500;
+  color: #474747;
+}
+
+.container button {
+  width: 750px;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background-color: #C92071;
+  color: #F5F5F5;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 80px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #991956;
+}

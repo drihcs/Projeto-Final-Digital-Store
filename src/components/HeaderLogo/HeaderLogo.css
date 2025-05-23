@@ -1,0 +1,20 @@
+.header-logo .heading-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 8rem;
+  gap: 2.5rem;
+}
+
+.header-logo {
+  width: 1440px;
+  height: 90px;
+}
+
+.heading-logo {
+  width: 172.5px;
+  height: 30px;
+  top: 25px;
+  left: 100px;
+}

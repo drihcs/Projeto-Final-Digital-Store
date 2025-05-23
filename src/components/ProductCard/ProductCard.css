@@ -1,0 +1,127 @@
+.prod-card-bg {
+  background-color: #f9f9f9;
+  padding: 1rem 0;
+}
+
+.prod-card {
+  max-width: 1250px;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.prod-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.prod-card-header h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #474747;
+}
+
+.prod-card-header a {
+  text-decoration: none;
+  color: #c92071;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+}
+
+.prod-card-header a:hover {
+  text-decoration: underline;
+}
+
+.prod-card-header a img {
+  height: 18px;
+  margin-left: 8px;
+}
+
+.prod-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.prod-card-item {
+  width: 100%;
+  height: 450px;
+  border-radius: 8px;
+}
+
+.prod-card-image {
+  width: 292px;
+  height: 321px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s;
+}
+
+.prod-card-image:hover {
+  transform: scale(1.02);
+}
+
+.prod-card-image img {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prod-card-descPorc {
+  position: absolute;
+  background-color: #e7ff86;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #474747;
+  font-size: 0.8rem;
+  bottom: 17.5rem;
+  left: 10px;
+  padding: 5px 10px;
+}
+
+.prod-card-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8F8F8F;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.prod-card-desc {
+  font-size: 20px;
+  color: #474747;
+  line-height: 30px;
+  letter-spacing: 0.50px;
+}
+
+.prod-card-prices {
+  display: flex;
+  gap: 0.5rem;
+  height: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.prod-card-price {
+  color: #8F8F8F;
+  text-decoration: line-through;
+  font-size: 1rem;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  vertical-align: sub;
+}
+
+.prod-card-priceDisc {
+  color: #1F1F1F;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+}

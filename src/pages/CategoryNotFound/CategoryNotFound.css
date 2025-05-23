@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.btn-home {
+  width: 200px;
+  height: 40px;
+  margin-top: 2rem;
+  background-color: #C92071;
+  color: #F5F5F5;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  transition: background-color 0.15s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-home:hover {
+  background-color: #991956;
+}
+
+p {
+  margin-top: 1rem;
+}

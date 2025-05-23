@@ -1,0 +1,174 @@
+.color-background {
+  background-color: #F9F8FE;
+}
+
+.caminhoTenis h5 {
+  padding: 1rem 0;
+  color: #474747;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+}
+
+.caminhoTenis {
+  margin: 0 8rem;
+}
+
+.descricaoProduto {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 0 8rem;
+  gap: 1rem;
+}
+
+.dadosProduto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1px;
+}
+
+.imgDescProdColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgDescProdRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.imagemGrande img {
+  min-width: 620px;
+  height: 571px;
+  top: 274px;
+  left: 100px;
+}
+
+.imagemGrande {
+  position: relative;
+}
+
+.miniImagens {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 50px;
+}
+
+.miniImagens img {
+  width: 100px;
+}
+
+.miniImagens .item1 {
+  background-color: #e2e3ff;
+}
+
+.miniImagens .item2 {
+  background-color: #ffe8bc;
+}
+
+.miniImagens .item3 {
+  background-color: #ffc0bc;
+}
+
+.miniImagens .item4 {
+  background-color: #dec699;
+}
+
+.miniImagens .item5 {
+  background-color: #e8dfcf;
+}
+
+.referenciasProduto {
+  color: #666666;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
+
+.avaliacao {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #f6aa1c;
+  border-radius: 0.2rem;
+  padding: 2px 11px;
+  height: 23px;
+  width: 63px;
+}
+
+.precoProd {
+  color: #474747;
+  font-size: 2rem;
+}
+
+.tamanhoSapato {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.tamanhoItem {
+  color: #474747;
+  font-size: 1.2rem;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 0.9rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.tamanhoItem:hover {
+  color: white;
+  background-color: #c92071;
+}
+
+.semList {
+  list-style-type: none;
+}
+
+.btn-comprar {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 3rem;
+  width: 220;
+  background-color: #f6aa1c;
+  cursor: pointer;
+}
+
+.btn-slide {
+  position: absolute;
+  top: 50%;
+  /* Ajuste para posicionar 10px do topo da imagem */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* Ocupa toda a largura */
+  box-sizing: border-box;
+  /* Garante que o padding não aumente a largura */
+  padding: 0 0.5rem;
+  /*Espaçamento interno*/
+}
+
+.btn-slide .botaoNavegacao {
+  cursor: pointer;
+  color: #474747;
+  transition: color 0.3s ease;
+  height: 1.5rem;
+}
+
+.btn-slide .botaoNavegacao:hover {
+  color: #c92071;
+}
