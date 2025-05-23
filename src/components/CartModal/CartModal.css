@@ -1,0 +1,167 @@
+.cart-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+  z-index: 1000;
+}
+
+.cart-modal {
+  margin: 90px 20px 0 0;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 330px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+}
+
+
+.cart-modal h3 {
+  font-family: Inter;
+  color: #474747;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  position: relative;
+  padding-bottom: 8px;
+  margin-left: -1px;
+}
+
+.cart-modal h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 180%;
+  height: 1px;
+  background-color: #CCCCCC;
+
+}
+
+.produto {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.produto img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-right: 10px;
+  background: #f2f2f2;
+}
+
+.info .nome {
+  font-family: Inter;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #1F1F1F;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.75px;
+}
+
+.precos {
+  display: flex;
+  gap: 8px;
+}
+
+.preco {
+  color: #474747;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.preco-antigo {
+  color: #CCCCCC;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+  text-align: center;
+  text-decoration: line-through;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #1F1F1F;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+}
+
+.valor {
+  color: #EE4266;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  text-align: center;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.botoes .esvaziar {
+  color: #474747;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.botoes .esvaziar:hover {
+  color: #C92071;
+}
+
+.botoes .ver-carrinho {
+  background-color: #C92071;
+  color: #F7F7FC;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.75px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+.botoes .ver-carrinho:hover {
+  background-color: #991956;
+}
