@@ -11,12 +11,12 @@ export function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/pedidos" element={<MeusPedidosPage />} />
             <Route path="/products" element={<ProductListingPage />} />
             <Route path="/viewProduct" element={<ProductViewPage />} />
             <Route path="/register" element={<CreateAccountPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/categorias" element={<CategoryNotFound />} />
+            <Route path="/pedidos" element={<MeusPedidosPage />} />
         </Routes>
     )
 }
