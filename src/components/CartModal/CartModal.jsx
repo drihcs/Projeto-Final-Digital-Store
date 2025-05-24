@@ -53,7 +53,7 @@ export function CartModal({ show, onClose }) {
 
         <div className="botoes">
           <button className="esvaziar" onClick={() => alert("Carrinho esvaziado!")}>Esvaziar</button>
-          <Link to="/pedidos" className="ver-carrinho">Ver Carrinho</Link>
+          <Link to="/meu-carrinho" className="ver-carrinho">Ver Carrinho</Link>
         </div>
       </div>
     </div>

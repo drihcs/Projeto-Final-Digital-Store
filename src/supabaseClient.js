@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'https://SUA-URL.supabase.co';
-const supabaseKey = 'SUA-CHAVE-PUBLICA';
+const supabaseUrl = 'https://ododkybzldaqouewubmx.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9kb2RreWJ6bGRhcW91ZXd1Ym14Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0ODEwNDAxNywiZXhwIjoyMDYzNjgwMDE3fQ.qoHAWkU4vpagJ7P95zS3ja3FuLO6Y-KARMERKDSsi8Q';
 export const supabase = createClient(supabaseUrl, supabaseKey);

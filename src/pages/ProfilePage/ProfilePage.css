@@ -1,0 +1,52 @@
+/* src/pages/ProfilePage/ProfilePage.css */
+
+.profile-container {
+  display: flex;
+  min-height: 70vh;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li.titulo {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  cursor: default;
+}
+
+.sidebar li a {
+  display: block;
+  padding: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+  border-radius: 4px;
+}
+
+.sidebar li a:hover {
+  background-color: #ffe6f0;
+  color: #e91e63;
+}
+
+.sidebar li a.active {
+  font-weight: bold;
+  color: #e91e63;
+}
+
+.profile-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+}

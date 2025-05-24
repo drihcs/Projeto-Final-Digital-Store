@@ -1,0 +1,27 @@
+aside {
+  background-color: #f9f9f9;
+}
+
+aside h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+aside nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+  font-weight: normal;
+}
+
+aside nav a:hover {
+  color: #e91e63;
+  /* rosa no hover */
+}
+
+aside nav a.active {
+  color: #e91e63;
+  font-weight: bold;
+}

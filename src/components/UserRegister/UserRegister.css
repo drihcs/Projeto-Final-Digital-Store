@@ -53,21 +53,20 @@
   gap: 20px;
   padding: 0 2rem 2rem 2rem;
   border-radius: 8px;
-  margin-bottom: -30px;
 }
 
-.container .form-container1 {
+.container .form-card-pessoal {
   background-color: #FFFFFF;
   width: 750px;
-  height: 510px;
+  min-height: 510px;
   margin-bottom: 1rem;
   border-radius: 8px;
 }
 
-.container .form-container2 {
+.container .form-card-entrega {
   background-color: #FFFFFF;
   width: 750px;
-  height: 610px;
+  min-height: 610px;
   border-radius: 8px;
 }
 
@@ -103,23 +102,23 @@ input::placeholder {
 .container .container-checkbox .custon-checkbox {
   width: 22px;
   height: 22px;
+  border-radius: 2px;
+  border-width: 1px;
   accent-color: #C92071;
-  margin: 0 1rem 1rem 0;
-}
-
-.container .checkbox-input {
-  width: 22px;
-  height: 22px;
+  margin-right: 1rem;
 }
 
 .container .container-checkbox .paragraph {
   font-size: 14px;
   font-weight: 500;
   color: #474747;
+  line-height: 1.5;
+  margin-bottom: -1rem;
+  margin-top: -1rem;
 }
 
 .container button {
-  width: 750px;
+  width: 745px;
   height: 48px;
   border-radius: 8px;
   border: none;
@@ -130,6 +129,8 @@ input::placeholder {
   margin-bottom: 80px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  justify-content: center;
+  align-items: center;
 }
 
 button:hover {
