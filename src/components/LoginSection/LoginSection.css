@@ -6,121 +6,192 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 }
 
 .section-login div {
-  width: 100%;
-  max-width: 1200px;
-  /* Controla a largura máxima do conteúdo */
+  max-width: 500px;
+  top: 200px;
+  left: 100px;
+  border-radius: 8px;
+  padding: 20px 30px;
+  outline: 0;
 }
 
 .forms-content {
   padding: 30px;
   background-color: #ffffff;
   flex: 1;
-  /* Faz o formulário ocupar o mesmo espaço da imagem */
   height: auto;
   margin-left: 100px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(209, 202, 202, 0.1);
+  outline: none;
 }
 
 .image-sapatos {
-  flex: 1;
-  /* Faz a imagem ocupar o mesmo espaço do formulário */
-  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  padding: 0 20px;
-  /* Adiciona um pouco de espaço para a imagem não ficar muito próxima da borda */
+  margin-right: 11rem;
 }
 
-.image-sapatos img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Garantir que a imagem cubra o espaço sem distorcer */
-  border-radius: 10px;
-  /* Para manter a consistência com o formulário */
+.sapatos-login1 {
+  margin: 0 -7rem 10rem 0;
+}
+
+.sapatos-login2 {
+  margin: 10rem 0 -5rem 0;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1rem;
 }
 
 .form h1 {
-  font-weight: 1000;
-  font-size: 28px;
-  color: #333;
+  color: #1F1F1F;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  margin-bottom: -8px;
+}
+
+.form p {
+  color: #474747;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.75px;
 }
 
 .form a {
-  color: #000000;
-  text-decoration: none;
+  color: #474747;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 0%;
 }
 
 .form a:hover {
   color: #c92071;
 }
 
-.forms-content input {
+.form label {
+  color: #474747;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  margin-bottom: -12px;
+}
+
+input[type="text"],
+input[type="password"] {
   width: 100%;
   height: 50px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  background-color: #f8f8f8;
-  padding: 0 20px;
+  background-color: #F5F5F5;
+  border: none;
   outline: none;
-  font-size: 15px;
+  border-radius: 8px;
+  padding-left: 1rem;
+  font-size: 16px;
+  color: #666666;
+  font-weight: normal;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #CCCCCC;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+}
+
+.form .forgot-password {
+  color: #474747;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: 0.25px;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 0%;
+}
+
+.form .forgot-password:hover {
+  color: #c92071;
 }
 
 .form button {
   width: 100%;
   height: 50px;
-  color: #ffffff;
-  background-color: #c92071;
-  border: none;
-  font-size: 18px;
-  border-radius: 5px;
+  color: #F5F5F5;
+  background-color: #C92071;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  border-radius: 8px;
+  text-align: center;
+  vertical-align: middle;
+  transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
+.form button:hover {
+  background-color: #991956;
+}
+
 .login-rede-sociais {
-  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-top: -12px;
+  margin-bottom: -12px;
 }
 
 .login-rede-sociais span {
-  color: #666;
+  color: #4D496F;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.75px;
 }
 
-.icon-facebook,
+/* .icon-facebook,
 .icon-google {
   width: 24px;
   height: 24px;
   cursor: pointer;
-}
+} */
 
-.social-icons-container {
+/* .social-icons-container {
   display: flex;
   justify-content: center;
   gap: 20px;
-}
+} */
 
-.icon-google,
+/* .icon-google,
 .icon-facebook {
   width: 20px;
   height: auto;
   transition: transform 0.3s ease;
-}
+} */
 
-.icon-google:hover,
+/* .icon-google:hover,
 .icon-facebook:hover {
   transform: scale(0.9);
-}
+} */
