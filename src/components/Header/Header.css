@@ -4,7 +4,8 @@ header {
   height: 12rem;
   margin: 0 auto;
   margin-top: -2rem;
-  box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(107, 106, 106, 0.1);
+  position: relative;
 }
 
 header .heading {

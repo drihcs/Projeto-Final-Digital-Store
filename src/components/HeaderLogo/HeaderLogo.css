@@ -1,21 +1,19 @@
 .header-logo .heading-logo {
-  display: flex;
-  flex-direction: row;
+  width: 172.5px;
+  margin-left: 100px;
   align-items: center;
-  justify-content: space-between;
-  height: 8rem;
+  justify-content: center;
+  display: flex;
+  height: 100%;
   gap: 2.5rem;
+  margin-top: 25px;
 }
 
 .header-logo {
   width: 100%;
   height: 90px;
-}
-
-.heading-logo {
-  width: 172.5px;
-  height: 30px;
-  margin-left: 100px;
-  align-items: center;
-  justify-content: center;
+  z-index: 10;
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(107, 106, 106, 0.1);
 }
