@@ -148,7 +148,7 @@
 
 .prod-page-descPorc {
   position: absolute;
-  top: 10px;
+  top: -5px;
   left: 10px;
   background-color: #e7ff86;
   border-radius: 20px;
@@ -163,7 +163,7 @@
   font-weight: bold;
   color: #8F8F8F;
   margin-top: 8px;
-  margin-bottom: 1px;
+  margin-bottom: -16px;
   font-weight: 700;
   font-size: 12px;
   line-height: 24px;
@@ -172,18 +172,20 @@
 
 .prod-page-descricao {
   display: flex;
-  font-size: 18px;
+  font-size: 16px;
   color: #474747;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 32px;
   letter-spacing: 0.75px;
+  margin-bottom: -16px;
+  text-align: left;
 }
 
 .prod-page-prices {
   display: flex;
   gap: 0.5rem;
   height: 1.3rem;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .prod-page-price {
