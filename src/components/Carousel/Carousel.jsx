@@ -45,6 +45,8 @@ const slides = [
 
 export function Carousel() {
   return (
+
+
     <Swiper
       loop
       slidesPerView={1}

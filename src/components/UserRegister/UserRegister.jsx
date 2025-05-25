@@ -25,7 +25,7 @@ export function UserCad() {
         if (error) {
             alert('Erro ao criar conta: ' + error.message);
         } else {
-            // Redireciona para a aba "Meus Pedidos"
+
             navigate('/pedidos');
         }
     }

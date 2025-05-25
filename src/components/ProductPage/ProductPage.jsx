@@ -1,14 +1,21 @@
 import "./ProductPage.css";
 import { Link } from "react-router-dom";
 
-// Imagens dos produtos
 import WhiteSneaker from '../../../public/tenis1.png';
 import BlueSneaker from '../../../public/tenis2.png';
 import LemonSneaker from '../../../public/tenis3.png';
 import BlackPuma from '../../../public/tenis4.png';
 import RedNike from '../../../public/tenis5.png';
-import BluePuma from '../../../public/tenis6.png';
+import NikePurple from '../../../public/tenis16.png';
 import Balenci1 from '../../../public/tenis7.png';
+import Adidas1 from '../../../public/tenis8.png';
+import NikeYellow from '../../../public/tenis9.png';
+import special from '../../../public/tenis10.png';
+import NikeAir from '../../../public/tenis11.png';
+import NikeGreen from '../../../public/tenis12.png';
+import AdidasPink from '../../../public/tenis13.png';
+import AdidasSamba from '../../../public/tenis14.png';
+import AdidasCor from '../../../public/tenis15.png';
 
 const products = [
   {
@@ -20,8 +27,8 @@ const products = [
     image: WhiteSneaker,
   },
   {
-    nome: "Tênis Nike Air",
-    descricao: "Air Jordan 1 Mid",
+    nome: "Tênis Nike",
+    descricao: "Air Jordan 1 Retro High",
     preco: "R$ 749,90",
     desconto: "R$ 524,93",
     descPorc: "30% OFF",
@@ -35,8 +42,8 @@ const products = [
     image: LemonSneaker,
   },
   {
-    nome: "Tênis K-Swiss",
-    descricao: "K-Swiss V8",
+    nome: "Tênis Puma",
+    descricao: "Tênis Puma Roma Basic",
     preco: "R$ 799,00",
     desconto: "R$ 499,99",
     image: BlackPuma,
@@ -50,17 +57,17 @@ const products = [
   },
   {
     nome: "Tênis Nike",
-    descricao: "Puma Flyer Runner",
-    preco: "$320",
-    desconto: "$256",
-    descPorc: "20% OFF",
-    image: BluePuma,
+    descricao: "Nike X Blue Lock Mikage Reo",
+    preco: "1.299,70",
+    desconto: "R$ 909,79",
+    descPorc: "30% OFF",
+    image: NikePurple,
   },
   {
     nome: "Tênis Balenciaga",
-    descricao: "Balenciaga Speed",
-    preco: "$1200",
-    desconto: "$960",
+    descricao: "Tênis Balenciaga Tripe S",
+    preco: "R$3.185,00",
+    desconto: "R$2.866,50",
     descPorc: "20% OFF",
     image: Balenci1,
   },
@@ -70,7 +77,7 @@ const products = [
     preco: "$1200",
     desconto: "$960",
     descPorc: "20% OFF",
-    image: Balenci1,
+    image: Adidas1,
   },
   {
     nome: "Tênis Balenciaga",
@@ -78,7 +85,7 @@ const products = [
     preco: "$1200",
     desconto: "$960",
     descPorc: "20% OFF",
-    image: Balenci1,
+    image: NikeYellow,
   },
   {
     nome: "Tênis Balenciaga",
@@ -86,7 +93,15 @@ const products = [
     preco: "$1200",
     desconto: "$960",
     descPorc: "20% OFF",
-    image: Balenci1,
+    image: special,
+  },
+  {
+    nome: "Tênis Nike",
+    descricao: "Air Jordan 3 Retro Midnight Navy",
+    preco: "R$1.038,70",
+    desconto: "R$ 727,09",
+    descPorc: "30% OFF",
+    image: NikeAir,
   },
   {
     nome: "Tênis Balenciaga",
@@ -94,39 +109,31 @@ const products = [
     preco: "$1200",
     desconto: "$960",
     descPorc: "20% OFF",
-    image: Balenci1,
+    image: NikeGreen,
   },
   {
-    nome: "Tênis Balenciaga",
-    descricao: "Balenciaga Speed",
-    preco: "$1200",
-    desconto: "$960",
-    descPorc: "20% OFF",
-    image: Balenci1,
+    nome: "Tênis Adidas",
+    descricao: "Adidas Campus 00s",
+    // preco: "$1200",
+    desconto: "R$599,90",
+    // descPorc: "20% OFF",
+    image: AdidasPink,
   },
   {
-    nome: "Tênis Balenciaga",
-    descricao: "Balenciaga Speed",
-    preco: "$1200",
-    desconto: "$960",
-    descPorc: "20% OFF",
-    image: Balenci1,
+    nome: "Tênis Adidas",
+    descricao: "Adidas Samba Vegan",
+    // preco: "$1200",
+    desconto: "R$699,90",
+    // descPorc: "20% OFF",
+    image: AdidasSamba,
   },
   {
-    nome: "Tênis Balenciaga",
-    descricao: "Balenciaga Speed",
-    preco: "$1200",
-    desconto: "$960",
-    descPorc: "20% OFF",
-    image: Balenci1,
-  },
-  {
-    nome: "Tênis Balenciaga",
-    descricao: "Balenciaga Speed",
-    preco: "$1200",
-    desconto: "$960",
-    descPorc: "20% OFF",
-    image: Balenci1,
+    nome: "Tênis Adidas",
+    descricao: "Adidas Forum Low Cl x Simpsons",
+    // preco: "$1200",
+    desconto: "R$ 819,00",
+    // descPorc: "20% OFF",
+    image: AdidasCor,
   },
 ];
 

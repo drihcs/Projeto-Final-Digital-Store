@@ -1,4 +1,58 @@
-// src/pages/ProfilePage/MinhasInformacoes.jsx
+import { useEffect, useState } from "react";
+import { supabase } from "../../supabaseClient";
+
 export default function MinhasInformacoes() {
-  return <h2>Suas informações pessoais vão aparecer aqui.</h2>;
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchUserData() {
+      const {
+        data: { user },
+        error: authError,
+      } = await supabase.auth.getUser();
+
+      if (authError || !user) {
+        console.error("Usuário não autenticado");
+        setLoading(false);
+        return;
+      }
+
+      // Busca os dados na tabela "usuarios" pelo ID do usuário autenticado
+      const { data, error } = await supabase
+        .from("usuarios")
+        .select("*")
+        .eq("id", user.id)
+        .single();
+
+      if (error) {
+        console.error("Erro ao buscar dados do usuário:", error.message);
+      } else {
+        setUserData(data);
+      }
+
+      setLoading(false);
+    }
+
+    fetchUserData();
+  }, []);
+
+  if (loading) return <p>Carregando informações...</p>;
+
+  if (!userData) return <p>Não foi possível carregar seus dados.</p>;
+
+  return (
+    <div>
+      <h2>Minhas Informações</h2>
+      <p><strong>Nome:</strong> {userData.nome}</p>
+      <p><strong>CPF:</strong> {userData.cpf}</p>
+      <p><strong>Email:</strong> {userData.email}</p>
+      <p><strong>Celular:</strong> {userData.celular || "Não informado"}</p>
+      <p><strong>Endereço:</strong> {userData.endereco}</p>
+      <p><strong>Bairro:</strong> {userData.bairro}</p>
+      <p><strong>Cidade:</strong> {userData.cidade}</p>
+      <p><strong>CEP:</strong> {userData.cep}</p>
+      <p><strong>Complemento:</strong> {userData.complemento || "Não informado"}</p>
+    </div>
+  );
 }

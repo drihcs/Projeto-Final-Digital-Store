@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import './SizeButton.css'
 
 const ShoeSizeButtons = () => {
-  // Tamanhos disponíveis
+
   const sizes = ["39", "40", "41", "42", "43"];
 
-  // Estado para armazenar o tamanho selecionado
   const [selectedSize, setSelectedSize] = useState("");
 
-  // Função para atualizar o estado quando um tamanho for selecionado
   const handleSizeSelect = (size) => {
     setSelectedSize(size);
   };

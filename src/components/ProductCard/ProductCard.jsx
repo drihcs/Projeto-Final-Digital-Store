@@ -7,7 +7,7 @@ import BlueSneaker from '../../../public/tenis2.png'
 import LemonSneaker from '../../../public/tenis3.png'
 import BlackPuma from '../../../public/tenis4.png'
 import RedNike from '../../../public/tenis5.png'
-import BluePuma from '../../../public/tenis6.png'
+import NikePurple from '../../../public/tenis16.png'
 import Balenci1 from '../../../public/tenis7.png'
 
 const products = [
@@ -58,9 +58,10 @@ const products = [
   {
     nome: "Tênis Puma",
     descricao: "Puma Suede XL Hairy",
+    descPorc: "30% OFF",
     preco: "R$ 649,99",
     desconto: "R$ 479,99",
-    image: BluePuma,
+    image: NikePurple,
   },
   {
     nome: "Tênis Nike",
