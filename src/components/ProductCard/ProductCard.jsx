@@ -1,7 +1,7 @@
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
 import ArrowRight from "../../assets/right-arrow.svg";
-import kSwiss from "../../assets/tenisCard.svg";
+import Adidas from "../../../public/tenis8.png";
 import WhiteSneaker from '../../../public/tenis1.png'
 import BlueSneaker from '../../../public/tenis2.png'
 import LemonSneaker from '../../../public/tenis3.png'
@@ -13,15 +13,15 @@ import Balenci1 from '../../../public/tenis7.png'
 const products = [
   {
     nome: "Tênis Nike",
-    descricao: "Tênis Nike Air Force 1 Next Nature - Feminino",
+    descricao: "Nike Air Force 1",
     descPorc: "30% OFF",
     preco: "R$ 799,99",
     desconto: "R$ 559,99",
     image: WhiteSneaker,
   },
   {
-    nome: "Tênis Nike Air",
-    descricao: "Air Jordan 1 Mid",
+    nome: "Tênis Nike",
+    descricao: "Air Jordan 1 Retro High",
     descPorc: "30% OFF",
     preco: "R$ 749,90",
     desconto: "R$ 524,93",
@@ -30,45 +30,47 @@ const products = [
   {
     nome: "Tênis Nike",
     descricao: "Nike Airmax",
+    descPorc: "30% OFF",
     preco: "R$ 600,00",
-    desconto: "R$ 569,90",
+    desconto: "R$ 420,00",
     image: LemonSneaker,
   },
   {
-    nome: "Tênis K-Swiss",
-    descricao: "K-Swiss V8",
-    preco: "R$ 799,00",
-    desconto: "R$ 499,99",
-    image: kSwiss,
-  },
-  {
     nome: "Tênis Puma",
-    descricao: "Puma Roma",
-    preco: "R$ 699,99",
-    desconto: "R$ 571,70",
+    descricao: "Tênis Puma Roma Basic",
+    // preco: "R$ 699,99",
+    desconto: "R$ 799,00",
     image: BlackPuma,
   },
   {
     nome: "Tênis Nike",
-    descricao: "Nike Court Borough",
-    preco: "R$ 899,90",
-    desconto: "R$ 799,90",
+    descricao: "Nike Court Borough Low",
+    descPorc: "30% OFF",
+    preco: "R$ 898,53",
+    desconto: "R$ 628,97",
     image: RedNike,
   },
   {
-    nome: "Tênis Puma",
-    descricao: "Puma Suede XL Hairy",
+    nome: "Tênis Nike",
+    descricao: "Nike X Blue Lock Mikage Reo",
     descPorc: "30% OFF",
-    preco: "R$ 649,99",
-    desconto: "R$ 479,99",
+    preco: "R$ 1.299,70",
+    desconto: "R$ 909,79",
     image: NikePurple,
   },
   {
-    nome: "Tênis Nike",
-    descricao: "Nike Huarache Run",
-    preco: "R$ 699,90",
-    desconto: "R$ 528,29",
+    nome: "Tênis Balenciaga",
+    descricao: "Tênis Balenciaga Tripe S",
+    // preco: "R$3.185,00",
+    desconto: "R$ 3.185,00",
     image: Balenci1,
+  },
+  {
+    nome: "Tênis Adidas",
+    descricao: "Adidas Superstar",
+    // preco: "R$ 799,00",
+    desconto: "R$ 699,99",
+    image: Adidas,
   },
 ];
 

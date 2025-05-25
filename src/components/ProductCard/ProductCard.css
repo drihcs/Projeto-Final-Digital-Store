@@ -91,14 +91,16 @@
   font-weight: bold;
   color: #8F8F8F;
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: -10px;
 }
 
 .prod-card-desc {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 500;
   color: #474747;
   line-height: 30px;
   letter-spacing: 0.50px;
+  margin-bottom: -16px;
 }
 
 .prod-card-prices {
