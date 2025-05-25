@@ -18,7 +18,11 @@ export function NavBar() {
           <li key={index}>
             <Link
               to={link.path}
-              className={location.pathname === link.path ? "active" : ""}
+              className={
+                link.path === "/"
+                  ? location.pathname === "/" ? "active" : ""
+                  : location.pathname.startsWith(link.path) ? "active" : ""
+              }
             >
               {link.label}
             </Link>

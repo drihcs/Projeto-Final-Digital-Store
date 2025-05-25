@@ -1,14 +1,12 @@
-// src/pages/ProfilePage/ProfilePage.jsx
-import { Header2 } from "../../components/HeaderLogo/HeaderLogo";
-import { Footer } from "../../components/Footer/Footer";
+import { Header } from "../../components/Header/Header.jsx";
+import { Footer } from "../../components/Footer/Footer.jsx";
 import { NavLink, Outlet } from "react-router-dom";
 import "./ProfilePage.css";
 
 export function ProfilePage() {
   return (
     <>
-      <Header2 />
-
+      <Header />
       <div className="profile-container">
         <aside className="sidebar">
           <ul>
@@ -18,12 +16,10 @@ export function ProfilePage() {
             <li><NavLink to="metodos-pagamento">Métodos de Pagamento</NavLink></li>
           </ul>
         </aside>
-
         <main className="profile-content">
           <Outlet />
         </main>
       </div>
-
       <Footer />
     </>
   );
