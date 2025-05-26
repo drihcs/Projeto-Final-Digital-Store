@@ -3,23 +3,31 @@ import { Navigate } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 
 export function ProtectedRoute({ children }) {
-  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    async function checkUser() {
-      const { data: { session }, error } = await supabase.auth.getSession();
-      if (error) {
-        console.error("Erro ao buscar sessão:", error.message);
+    const checkAuth = async () => {
+      try {
+        const { data, error } = await supabase.auth.getSession();
+        if (error || !data.session || !data.session.user) {
+          setUser(null);
+        } else {
+          setUser(data.session.user);
+        }
+      } catch (err) {
+        setUser(null);
+      } finally {
+        setChecking(false);
       }
-      setUser(session?.user || null);
-      setLoading(false);
-    }
+    };
 
-    checkUser();
+    checkAuth();
   }, []);
 
-  if (loading) return <p style={{ padding: "2rem" }}>Carregando...</p>;
+  if (checking) {
+    return <p style={{ padding: "2rem" }}>Verificando login...</p>;
+  }
 
   if (!user) {
     return <Navigate to="/login" replace />;

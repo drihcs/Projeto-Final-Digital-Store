@@ -1,19 +1,23 @@
 import { Routes, Route } from "react-router-dom";
+
 import { HomePage } from "../pages/HomePage/HomePage.jsx";
-import { ProductListingPage } from '../pages/ProductListingPage/ProductListingPage'
-import { ProductViewPage } from '../pages/ProductViewPage/ProductViewPage'
-import { CategoryNotFound } from "../pages/CategoryNotFound/CategoryNotFound"
+import { ProductListingPage } from "../pages/ProductListingPage/ProductListingPage";
+import { ProductViewPage } from "../pages/ProductViewPage/ProductViewPage";
+import { CategoryNotFound } from "../pages/CategoryNotFound/CategoryNotFound";
 import { LoginPage } from "../pages/LoginPage/LoginPage.jsx";
 import { CreateAccountPage } from "../pages/CreateAccountPage/CreateAccountPage.jsx";
+
 import { ProfilePage } from "../pages/ProfilePage/ProfilePage.jsx";
 import MeusPedidos from "../pages/ProfilePage/MeusPedidos.jsx";
 import MinhasInformacoes from "../pages/ProfilePage/MinhasInformacoes.jsx";
 import MetodosPagamento from "../pages/ProfilePage/MetodosPagamento.jsx";
+
 import { ProtectedRoute } from "../components/ProtectedRoute.jsx";
 
 export function AppRoutes() {
     return (
         <Routes>
+            {/* Rotas públicas */}
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductListingPage />} />
             <Route path="/viewProduct" element={<ProductViewPage />} />
@@ -21,6 +25,7 @@ export function AppRoutes() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<CreateAccountPage />} />
 
+            {/* Rota protegida: /pedidos + sub-abas */}
             <Route
                 path="/pedidos"
                 element={
