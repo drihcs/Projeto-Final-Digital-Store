@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
+import './MinhasInformacoes.css'
 
 export default function MinhasInformacoes() {
   const [userData, setUserData] = useState(null);
@@ -42,12 +43,14 @@ export default function MinhasInformacoes() {
   if (!userData) return <p>Não foi possível carregar seus dados.</p>;
 
   return (
-    <div>
-      <h2>Minhas Informações</h2>
+    <div className="info-container">
+      <h2 className="info-title">Minhas Informações</h2>
+      <h2 className="info-personal">Informações Pessoais</h2>
       <p><strong>Nome:</strong> {userData.nome}</p>
       <p><strong>CPF:</strong> {userData.cpf}</p>
       <p><strong>Email:</strong> {userData.email}</p>
       <p><strong>Celular:</strong> {userData.celular || "Não informado"}</p>
+      <h2 className="info-delivery">Informações de Entrega</h2>
       <p><strong>Endereço:</strong> {userData.endereco}</p>
       <p><strong>Bairro:</strong> {userData.bairro}</p>
       <p><strong>Cidade:</strong> {userData.cidade}</p>

@@ -91,3 +91,31 @@ header div .entrar {
   margin-right: 80px;
   margin-left: -80px;
 }
+
+.usuario-logado {
+  margin-right: 8rem;
+  font-weight: bold;
+  color: #474747;
+}
+
+.sair {
+  background: none;
+  border: none;
+  color: #474747;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: -2rem;
+  text-decoration: underline;
+}
+
+.sair:hover {
+  background-color: transparent;
+  color: #c92071
+}
+
+.usuario-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}

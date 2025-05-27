@@ -16,6 +16,7 @@ export function ProtectedRoute({ children }) {
           setUser(data.session.user);
         }
       } catch (err) {
+        console.error("Erro ao verificar sessão", err);
         setUser(null);
       } finally {
         setChecking(false);
