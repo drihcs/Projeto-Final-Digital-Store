@@ -7,7 +7,7 @@ import Login2 from '../../../public/login2.png'
 
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { supabase } from '../../supabaseClient'
+import { supabase } from '../../services/supabaseClient.js'
 
 export function SectionLogin() {
     const [email, setEmail] = useState("")

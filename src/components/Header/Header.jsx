@@ -6,7 +6,7 @@ import Search from "../../assets/Search.svg";
 import { Logo } from "../Logo/Logo";
 import { NavBar } from "../Navbar/Navbar";
 import { CartModal } from "../CartModal/CartModal";
-import { supabase } from "../../supabaseClient";
+import { supabase } from "../../services/supabaseClient.js";
 
 export function Header() {
   const [showCartModal, setShowCartModal] = useState(false);

@@ -1,6 +1,6 @@
 import './UserRegister.css';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../supabaseClient';
+import { supabase } from '../../services/supabaseClient.js';
 
 export function UserCad() {
     const navigate = useNavigate();
