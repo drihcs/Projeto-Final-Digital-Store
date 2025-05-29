@@ -12,6 +12,8 @@ import MeusPedidos from "../pages/ProfilePage/MeusPedidos.jsx";
 import MinhasInformacoes from "../pages/ProfilePage/MinhasInformacoes.jsx";
 import MetodosPagamento from "../pages/ProfilePage/MetodosPagamento.jsx";
 
+import CarrinhoPage from "../pages/CarrinhoPage/CarrinhoPage";
+
 import { ProtectedRoute } from "../components/ProtectedRoute.jsx";
 
 export function AppRoutes() {
@@ -24,6 +26,7 @@ export function AppRoutes() {
             <Route path="/categorias" element={<CategoryNotFound />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<CreateAccountPage />} />
+            <Route path="/meu-carrinho" element={<CarrinhoPage />} />
 
             {/* Rota protegida: /pedidos + sub-abas */}
             <Route

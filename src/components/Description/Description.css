@@ -96,7 +96,58 @@
   vertical-align: middle;
 }
 
+.DescricaoProduto {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.75px;
+  color: #8F8F8F;
+  margin-top: 1.5rem;
+  margin-bottom: -0.5rem;
+}
+
+.paragProduto {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  color: #474747;
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+}
+
+.tamProduto {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.75px;
+  color: #8F8F8F;
+  margin-bottom: 0.5rem;
+}
+
+.coresProduto {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.75px;
+  color: #8F8F8F;
+  margin-top: 1rem;
+}
+
+.referenciasAval {
+  color: #666666;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+}
+
 .avaliacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   font-size: 0.8rem;
   font-weight: 700;
@@ -105,11 +156,37 @@
   padding: 2px 11px;
   height: 23px;
   width: 63px;
+  margin-bottom: 1rem;
 }
 
 .precoProd {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1px;
   color: #474747;
-  font-size: 2rem;
+}
+
+.precoProd span {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+}
+
+.precoReal {
+  color: #CCCCCC;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+  text-decoration: line-through;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .tamanhoSapato {
@@ -145,7 +222,9 @@
   padding: 10px 3rem;
   width: 220;
   background-color: #f6aa1c;
+  transition: background-color 0.3s ease;
   cursor: pointer;
+  margin-top: 0.8rem;
 }
 
 .btn-slide {

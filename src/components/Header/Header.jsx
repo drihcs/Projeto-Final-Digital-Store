@@ -65,7 +65,7 @@ export function Header() {
                   xmlns="http://www.w3.org/2000/svg"
                   height="24"
                   width="24"
-                  fill="#e91e63"
+                  fill="#C92071"
                   viewBox="0 0 24 24"
                   style={{ marginRight: "-8px" }}
                 >

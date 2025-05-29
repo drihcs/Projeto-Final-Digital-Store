@@ -53,21 +53,24 @@ export function DescProduct() {
                         </div>
                     </div>
                     <div className='dadosProduto'>
-                        <h1>Tênis Nike Air Force 1 "07 Next Nature - Feminino</h1>
+                        <h1>Tênis Nike Air Force 1</h1>
                         <p className='referenciasProduto'>Casual | Nike | REF:38416711</p>
                         <div className='imgDescProdRow'>
                             <Star />
                             <p className='avaliacao'>4.7 <FaStar /></p>
-                            <p className='referenciasProduto'>(90 avaliações)</p>
+                            <p className='referenciasAval'>(90 avaliações)</p>
                         </div>
-                        <h2 className='precoProd'>R$ 559,99</h2>
-                        <h4 className='referenciasProduto'>Descrição do Produto</h4>
-                        <p className='referenciasProduto'>Sem problemas, todos jogam. Feito com pelo menos 20% de materiais reciclado por peso, o original que escreveu a história dos tênis é atualizado com couro sintético.</p>
-                        <h4 className='referenciasProduto'>Tamanho</h4>
+                        <div className='price'>
+                            <h2 className='precoProd'><span>R$</span> 559<span>,99</span></h2>
+                            <h2 className='precoReal'>R$ 799,99</h2>
+                        </div>
+                        <h4 className='DescricaoProduto'>Descrição do Produto</h4>
+                        <p className='paragProduto'>Sem problemas, todos jogam. Feito com pelo menos 20% de materiais reciclado por peso, o original que escreveu a história dos tênis é atualizado com couro sintético.</p>
+                        <h4 className='tamProduto'>Tamanho</h4>
                         <div className='tamanhoSapato'>
                             <SizeButtonShoes />
                         </div>
-                        <h4 className='referenciasProduto'>Cores</h4>
+                        <h4 className='coresProduto'>Cores</h4>
                         <div className='cores'>
                             <ColorShoes />
                         </div>

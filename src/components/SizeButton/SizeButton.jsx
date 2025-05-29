@@ -17,7 +17,7 @@ const ShoeSizeButtons = () => {
         {sizes.map((size) => (
           <button
             key={size}
-            style={{ margin: "5px" }}
+            style={{ margin: "2px" }}
             onClick={() => handleSizeSelect(size)}
             className={selectedSize === size ? "selected" : ""}
           >

@@ -1,11 +1,12 @@
 .containerCS {
     display: flex;
+    gap: -15px;
 }
 
 .infoCircle {
-        width: 30px;
-        height: 30px;
-        border-Radius: 50%;
-        margin: 10px;
-        cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-Radius: 50%;
+    margin: 10px;
+    cursor: pointer;
 }
