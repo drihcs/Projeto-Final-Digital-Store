@@ -61,59 +61,58 @@ export default function CarrinhoPage() {
     <>
       <Header />
       <main className="carrinho-wrapper">
-        <h1>Meu Carrinho</h1>
-
-        {loading ? (
-          <p>Carregando...</p>
-        ) : (
-          <div className="carrinho-grid">
-            <section className="carrinho-esquerda">
-              {carrinho.length === 0 ? (
-                <div className="carrinho-vazio">
-                  Seu carrinho está vazio. <a href="/products">Ver produtos</a>
-                </div>
-              ) : (
-                carrinho.map((item) => (
-                  <div className="item-carrinho" key={item.id}>
-                    <img src={item.produto.imagem_url} alt={item.produto.nome} />
-                    <div className="item-info">
-                      <h2>{item.produto.nome}</h2>
-                      <p>Cor: {item.produto.cor || '---'} | Tamanho: {item.produto.tamanho || '---'}</p>
-                      <p>
-                        <span className="risco">R$ {item.produto.preco_original?.toFixed(2)}</span>{' '}
-                        <strong>R$ {item.produto.preco.toFixed(2)}</strong>
-                      </p>
-                      <button onClick={() => removerItem(item.id)} className="btn-remover">
-                        Remover item
-                      </button>
-                    </div>
-                    <div className="item-total">
-                      <p>Qtd: {item.quantidade}</p>
-                      <p>Total: R$ {(item.produto.preco * item.quantidade).toFixed(2)}</p>
-                    </div>
+        <div className="carrinho-grid">
+          {/* Bloco Carrinho */}
+          <section className="carrinho-box">
+            <h2>MEU CARRINHO</h2>
+            {loading ? (
+              <p>Carregando...</p>
+            ) : carrinho.length === 0 ? (
+              <div className="carrinho-vazio">
+                Seu carrinho está vazio. <a href="/products">Ver produtos</a>
+              </div>
+            ) : (
+              carrinho.map((item) => (
+                <div className="item-carrinho" key={item.id}>
+                  <img src={item.produto.imagem_url} alt={item.produto.nome} />
+                  <div className="item-info">
+                    <h3>{item.produto.nome}</h3>
+                    <p>Cor: {item.produto.cor || '---'} | Tamanho: {item.produto.tamanho || '---'}</p>
+                    <p>
+                      <span className="risco">R$ {item.produto.preco_original?.toFixed(2)}</span>{' '}
+                      <strong>R$ {item.produto.preco.toFixed(2)}</strong>
+                    </p>
+                    <button onClick={() => removerItem(item.id)} className="btn-remover">
+                      Remover item
+                    </button>
                   </div>
-                ))
-              )}
-            </section>
+                  <div className="item-total">
+                    <p>Qtd: {item.quantidade}</p>
+                    <p>Total: R$ {(item.produto.preco * item.quantidade).toFixed(2)}</p>
+                  </div>
+                </div>
+              ))
+            )}
+          </section>
 
-            <aside className="resumo-direita">
-              <h2>Resumo</h2>
-              <p><span>Subtotal:</span> <span>R$ {subtotal.toFixed(2)}</span></p>
-              <p><span>Frete:</span> <span>R$ {frete.toFixed(2)}</span></p>
-              <p><span>Desconto:</span> <span>R$ {desconto.toFixed(2)}</span></p>
-              <hr />
-              <p className="total"><span>Total:</span> <span>R$ {total.toFixed(2)}</span></p>
-              <button
-                onClick={() => navigate('/checkout')}
-                className="btn-continuar"
-                disabled={carrinho.length === 0}
-              >
-                Continuar
-              </button>
-            </aside>
-          </div>
-        )}
-        {/* </div> */}
+          {/* Bloco Resumo */}
+          <aside className="resumo-box">
+            <h2>RESUMO</h2>
+            <p><span>Subtotal:</span> <span>R$ {subtotal.toFixed(2)}</span></p>
+            <p><span>Frete:</span> <span>R$ {frete.toFixed(2)}</span></p>
+            <p><span>Desconto:</span> <span>R$ {desconto.toFixed(2)}</span></p>
+            <hr />
+            <p className="total"><strong>Total:</strong> <strong>R$ {total.toFixed(2)}</strong></p>
+            <p className="parcelado">ou 10x de R$ {(total / 10).toFixed(2)} sem juros</p>
+            <button
+              onClick={() => navigate('/checkout')}
+              className="btn-continuar"
+              disabled={carrinho.length === 0}
+            >
+              Continuar
+            </button>
+          </aside>
+        </div>
       </main>
       <ProductCard quantidadeProdutos={4} />
       <Footer />

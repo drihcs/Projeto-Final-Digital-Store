@@ -13,6 +13,8 @@ import MinhasInformacoes from "../pages/ProfilePage/MinhasInformacoes.jsx";
 import MetodosPagamento from "../pages/ProfilePage/MetodosPagamento.jsx";
 
 import CarrinhoPage from "../pages/CarrinhoPage/CarrinhoPage";
+import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
+import SucessoPage from '../pages/SucessoPage/SucessoPage';
 
 import { ProtectedRoute } from "../components/ProtectedRoute.jsx";
 
@@ -27,6 +29,8 @@ export function AppRoutes() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<CreateAccountPage />} />
             <Route path="/meu-carrinho" element={<CarrinhoPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/sucesso" element={<SucessoPage />} />
 
             {/* Rota protegida: /pedidos + sub-abas */}
             <Route
