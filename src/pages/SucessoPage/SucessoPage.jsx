@@ -6,14 +6,14 @@ import { Footer } from '../../components/Footer/Footer';
 import './SucessoPage.css';
 
 export default function SucessoPage() {
-  const [ultimaCompra, setUltimaCompra] = useState(null);
+  const [compra, setCompra] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    buscarUltimaCompra();
+    carregarCompra();
   }, []);
 
-  async function buscarUltimaCompra() {
+  async function carregarCompra() {
     const { data: sessionData } = await supabase.auth.getSession();
     const user = sessionData?.session?.user;
     if (!user) return;
@@ -25,43 +25,69 @@ export default function SucessoPage() {
       .order('criado_em', { ascending: false })
       .limit(1);
 
-    if (compras && compras.length > 0) {
-      setUltimaCompra(compras[0]);
+    if (compras?.length > 0) {
+      setCompra(compras[0]);
     }
   }
 
   return (
     <>
       <Header />
-      <main className="sucesso-container">
-        <div className="recibo">
-          <h1>Compra Realizada com Sucesso!</h1>
+      <main className="sucesso-wrapper">
+        <div className="sucesso-box">
+          <div className="icone-sucesso">🎉</div>
+          <h1>Compra Realizada<br />com sucesso!</h1>
 
-          {ultimaCompra ? (
-            <div className="recibo-conteudo">
-              <p><strong>Nome:</strong> {ultimaCompra.nome}</p>
-              <p><strong>E-mail:</strong> {ultimaCompra.email}</p>
-              <p><strong>CPF:</strong> {ultimaCompra.cpf}</p>
-              <p><strong>Endereço:</strong> {ultimaCompra.endereco_entrega}</p>
-              <p><strong>Forma de Pagamento:</strong> {ultimaCompra.forma_pagamento}</p>
-              <p><strong>Total:</strong> R$ {ultimaCompra.total?.toFixed(2)}</p>
+          {compra ? (
+            <div className="sucesso-conteudo">
+              <section>
+                <h3>Informações Pessoais</h3>
+                <p><strong>Nome:</strong> {compra.nome}</p>
+                <p><strong>CPF:</strong> {compra.cpf}</p>
+                <p><strong>Email:</strong> {compra.email}</p>
+                <p><strong>Celular:</strong> {compra.telefone}</p>
+              </section>
 
-              <button
-                className="btn-boleto"
-                onClick={() => window.open('/boleto-fake.pdf', '_blank')}
-              >
-                Visualizar Boleto
-              </button>
+              <section>
+                <h3>Informações de Entrega</h3>
+                {compra.endereco_entrega.split(',').map((linha, i) => (
+                  <p key={i}>{linha.trim()}</p>
+                ))}
+              </section>
 
-              <button
-                className="btn-voltar"
-                onClick={() => navigate('/')}
-              >
-                Voltar para Home
-              </button>
+              <section>
+                <h3>Informações de Pagamento</h3>
+                <p><strong>Forma:</strong> {compra.forma_pagamento === 'cartao' ? 'Cartão de Crédito' : 'Boleto Bancário'}</p>
+                <p><strong>Final:</strong> ************2020</p>
+              </section>
+
+              <section className="resumo-compra">
+                <h3>Resumo da compra</h3>
+                <div className="produto-item">
+                  <img src="/produto-exemplo.png" alt="Produto" />
+                  <p>Tênis Nike Revolution 6 Next Nature Masculino</p>
+                </div>
+
+                <div className="total-box">
+                  <p className="label">Total</p>
+                  <p className="valor">R$ {compra.total?.toFixed(2)}</p>
+                  <span className="parcelado">ou 10x de R$ {(compra.total / 10).toFixed(2)} sem juros</span>
+                </div>
+
+                <a
+                  className="link-imprimir"
+                  href="/boleto-fake.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visualizar Boleto
+                </a>
+              </section>
+
+              <button className="btn-voltar" onClick={() => navigate('/')}>Voltar para Home</button>
             </div>
           ) : (
-            <p>Carregando detalhes da compra...</p>
+            <p>Carregando dados da compra...</p>
           )}
         </div>
       </main>

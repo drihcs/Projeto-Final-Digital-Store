@@ -38,7 +38,6 @@ const products = [
   {
     nome: "Tênis Puma",
     descricao: "Tênis Puma Roma Basic",
-    // preco: "R$ 699,99",
     desconto: "R$ 799,00",
     image: BlackPuma,
   },
@@ -61,14 +60,12 @@ const products = [
   {
     nome: "Tênis Balenciaga",
     descricao: "Tênis Balenciaga Tripe S",
-    // preco: "R$3.185,00",
     desconto: "R$ 3.185,00",
     image: Balenci1,
   },
   {
     nome: "Tênis Adidas",
     descricao: "Adidas Superstar",
-    // preco: "R$ 799,00",
     desconto: "R$ 699,99",
     image: Adidas,
   },

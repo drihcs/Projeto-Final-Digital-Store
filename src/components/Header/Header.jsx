@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import cartIcon from "../../assets/cart-icon.svg";
 import Search from "../../assets/Search.svg";
-import { Logo } from "../Logo/Logo";
+import { Logo } from "../Logo/Logo.jsx";
 import { NavBar } from "../Navbar/Navbar";
 import { CartModal } from "../CartModal/CartModal";
 import { supabase } from "../../services/supabaseClient.js";

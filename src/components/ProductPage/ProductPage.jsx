@@ -45,7 +45,6 @@ const products = [
   {
     nome: "Tênis Puma",
     descricao: "Tênis Puma Roma Basic",
-    // preco: "R$ 799,00",
     desconto: "R$ 799,00",
     image: BlackPuma,
   },
@@ -68,23 +67,19 @@ const products = [
   {
     nome: "Tênis Balenciaga",
     descricao: "Tênis Balenciaga Tripe S",
-    // preco: "R$3.185,00",
     desconto: "R$ 3.185,00",
-    // descPorc: "20% OFF",
     image: Balenci1,
   },
   {
     nome: "Tênis Adidas",
     descricao: "Adidas Superstar",
-    // preco: "$1200",
     desconto: "R$ 699,99",
-    // descPorc: "20% OFF",
     image: Adidas1,
   },
   {
     nome: "Tênis Nike",
     descricao: "Nike Air Force 1 Low",
-    preco: "R$ 1925,52",
+    preco: "R$ 1.925,52",
     desconto: "R$ 1.347,86",
     descPorc: "30% OFF",
     image: NikeYellow,
@@ -116,25 +111,19 @@ const products = [
   {
     nome: "Tênis Adidas",
     descricao: "Adidas Campus 00s",
-    // preco: "$1200",
     desconto: "R$ 599,90",
-    // descPorc: "20% OFF",
     image: AdidasPink,
   },
   {
     nome: "Tênis Adidas",
     descricao: "Adidas Samba Vegan",
-    // preco: "$1200",
     desconto: "R$ 699,90",
-    // descPorc: "20% OFF",
     image: AdidasSamba,
   },
   {
     nome: "Tênis Adidas",
     descricao: "Adidas Forum Low Cl x Simpsons",
-    // preco: "$1200",
     desconto: "R$ 819,00",
-    // descPorc: "20% OFF",
     image: AdidasCor,
   },
 ];

@@ -6,6 +6,7 @@ import ColorShoes from '../ColorsShoes/ColorShoes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import SizeButtonShoes from '../SizeButton/SizeButton';
+import { supabase } from '../../services/supabaseClient';
 
 import Tenis1 from '../../../public/detalhes.png';
 
@@ -27,6 +28,45 @@ export function DescProduct() {
     const anteriorCor = () => {
         setIndiceCor((indiceCor - 1 + coresFundo.length) % coresFundo.length);
     };
+
+    async function adicionarAoCarrinho() {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const user = sessionData?.session?.user;
+        if (!user) {
+            alert('Você precisa estar logado para adicionar ao carrinho.');
+            return;
+        }
+
+        // Buscar o produto no Supabase pela descrição
+        const { data: produto, error } = await supabase
+            .from('produtos')
+            .select('*')
+            .ilike('descricao', '%Air Force 1%') // ou outra descrição exata
+            .limit(1)
+            .single();
+
+        if (error || !produto) {
+            alert('Produto não encontrado no banco de dados.');
+            return;
+        }
+
+        // Inserir no carrinho
+        const { error: insertError } = await supabase.from('carrinho').insert([
+            {
+                usuario_id: user.id,
+                produto_id: produto.id,
+                quantidade: 1,
+            }
+        ]);
+
+        if (insertError) {
+            console.error(insertError);
+            alert('Erro ao adicionar produto ao carrinho.');
+        } else {
+            alert('Produto adicionado ao carrinho com sucesso!');
+        }
+    }
+
 
     return (
         <div className='color-background'>
@@ -75,7 +115,9 @@ export function DescProduct() {
                             <ColorShoes />
                         </div>
                         <div>
-                            <button className='btn-comprar'>Comprar</button>
+                            <button className='btn-comprar' onClick={adicionarAoCarrinho}>
+                                Adicionar ao Carrinho
+                            </button>
                         </div>
                     </div>
                 </div>

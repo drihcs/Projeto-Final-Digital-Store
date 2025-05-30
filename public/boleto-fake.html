@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boleto Digital - Drip Store</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff;
+      color: #000;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .boleto-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .linha {
+      border-top: 1px solid #000;
+      margin: 1.5rem 0;
+    }
+
+    .info-box {
+      margin-bottom: 1rem;
+    }
+
+    .info-box strong {
+      display: inline-block;
+      width: 160px;
+    }
+
+    .barcode {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .barcode img {
+      width: 100%;
+      max-width: 500px;
+      height: 60px;
+      background: #000;
+    }
+
+    .btn-imprimir {
+      display: block;
+      margin: 2rem auto 0;
+      background: #ffb703;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Boleto Bancário - Drip Store</h1>
+
+  <div class="boleto-header">
+    <div><strong>Beneficiário:</strong> Drip Store LTDA</div>
+    <div><strong>Vencimento:</strong> 10/06/2025</div>
+  </div>
+
+  <div class="info-box">
+    <strong>Valor do documento:</strong> R$ 219,00
+  </div>
+  <div class="info-box">
+    <strong>CPF do pagador:</strong> 123.456.789-00
+  </div>
+  <div class="info-box">
+    <strong>Nome do pagador:</strong> Francisco Antonio Pereira
+  </div>
+  <div class="info-box">
+    <strong>Endereço:</strong> Rua João Pessoa, 333 - Fortaleza/CE
+  </div>
+
+  <div class="linha"></div>
+
+  <div class="info-box">
+    <strong>Linha digitável:</strong> 00190.00009 01234.567891 23456.789012 3 12340000021900
+  </div>
+
+  <div class="barcode">
+    <img src="https://dummyimage.com/500x60/000/fff.png&text=|| ||| | |||| || | || || |||"
+      alt="Código de barras fictício">
+  </div>
+
+  <button class="btn-imprimir" onclick="window.print()">Imprimir Boleto</button>
+</body>
+
+</html>

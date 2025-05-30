@@ -1,29 +1,48 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "../../services/supabaseClient";
 import "./CartModal.css";
-import tenisVermelho from "../../../public/tenis1.png";
-import tenisAzul from "../../../public/tenis2.png";
 
 export function CartModal({ show, onClose }) {
+  const [carrinho, setCarrinho] = useState([]);
+
+  useEffect(() => {
+    async function carregarCarrinho() {
+      const { data: sessionData } = await supabase.auth.getSession();
+      const user = sessionData?.session?.user;
+      if (!user) return;
+
+      const { data: itens } = await supabase
+        .from("carrinho")
+        .select("*")
+        .eq("usuario_id", user.id);
+
+      const ids = itens.map((i) => i.produto_id);
+      const { data: produtos } = await supabase
+        .from("produtos")
+        .select("*")
+        .in("id", ids);
+
+      const carrinhoCompleto = itens.map((item) => ({
+        ...item,
+        produto: produtos.find((p) => p.id === item.produto_id),
+      }));
+
+      setCarrinho(carrinhoCompleto);
+    }
+
+    carregarCarrinho();
+
+    function atualizarCarrinho() {
+      carregarCarrinho();
+    }
+    window.addEventListener("carrinhoAtualizado", atualizarCarrinho);
+    return () => window.removeEventListener("carrinhoAtualizado", atualizarCarrinho);
+  }, []);
+
   if (!show) return null;
 
-  const produtos = [
-    {
-      id: 1,
-      nome: "Tênis Nike Air Force 1 Next Nature - Feminino",
-      preco: 599.99,
-      precoOriginal: 799.99,
-      imagem: tenisVermelho,
-    },
-    {
-      id: 2,
-      nome: "Tênis Nike Air Jordan 1 Mid",
-      preco: 524.93,
-      precoOriginal: 749.90,
-      imagem: tenisAzul,
-    },
-  ];
-
-  const total = produtos.reduce((acc, item) => acc + item.preco, 0);
+  const total = carrinho.reduce((acc, item) => acc + item.produto?.preco * item.quantidade, 0);
 
   return (
     <div className="cart-modal-overlay" onClick={onClose}>
@@ -31,18 +50,26 @@ export function CartModal({ show, onClose }) {
         <h3>Meu Carrinho</h3>
         <hr />
 
-        {produtos.map((produto) => (
-          <div className="produto" key={produto.id}>
-            <img src={produto.imagem} alt={produto.nome} />
-            <div className="info">
-              <p className="nome">{produto.nome}</p>
-              <div className="precos">
-                <span className="preco">R$ {produto.preco.toFixed(2)}</span>
-                <span className="preco-antigo">R$ {produto.precoOriginal.toFixed(2)}</span>
+        {carrinho.length === 0 ? (
+          <p>Seu carrinho está vazio.</p>
+        ) : (
+          carrinho.map((item) => (
+            <div className="produto" key={item.id}>
+              <img src={item.produto.imagem_url} alt={item.produto.nome} />
+              <div className="info">
+                <p className="nome">{item.produto.nome}</p>
+                <div className="precos">
+                  <span className="preco">R$ {item.produto.preco.toFixed(2)}</span>
+                  {item.produto.preco_original && (
+                    <span className="preco-antigo">
+                      R$ {item.produto.preco_original.toFixed(2)}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
 
         <hr />
 
@@ -52,8 +79,22 @@ export function CartModal({ show, onClose }) {
         </div>
 
         <div className="botoes">
-          <button className="esvaziar" onClick={() => alert("Carrinho esvaziado!")}>Esvaziar</button>
-          <Link to="/meu-carrinho" className="ver-carrinho">Ver Carrinho</Link>
+          <button
+            className="esvaziar"
+            onClick={async () => {
+              const { data: sessionData } = await supabase.auth.getSession();
+              const user = sessionData?.session?.user;
+              if (user) {
+                await supabase.from("carrinho").delete().eq("usuario_id", user.id);
+                setCarrinho([]);
+              }
+            }}
+          >
+            Esvaziar
+          </button>
+          <Link to="/meu-carrinho" className="ver-carrinho">
+            Ver Carrinho
+          </Link>
         </div>
       </div>
     </div>

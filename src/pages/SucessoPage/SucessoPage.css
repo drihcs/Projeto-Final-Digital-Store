@@ -1,58 +1,113 @@
-.sucesso-container {
+.sucesso-wrapper {
   background-color: #f9f9fc;
   padding: 2rem;
   display: flex;
   justify-content: center;
 }
 
-.recibo {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+.sucesso-box {
+  background-color: #fff;
+  padding: 2.5rem;
   max-width: 600px;
   width: 100%;
-}
-
-.recibo h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   text-align: center;
-  color: #2d2d2d;
 }
 
-.recibo-conteudo p {
-  margin: 0.5rem 0;
+.icone-sucesso {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sucesso-box h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.sucesso-conteudo section {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.sucesso-conteudo section h3 {
   font-size: 1rem;
-  color: #444;
+  margin-bottom: 0.5rem;
+  color: #333;
 }
 
-.btn-boleto,
-.btn-voltar {
-  display: block;
-  width: 100%;
-  margin-top: 1rem;
-  padding: 0.75rem;
-  border: none;
+.sucesso-conteudo p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0.3rem 0;
+}
+
+.produto-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.produto-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
   border-radius: 6px;
+}
+
+.total-box {
+  background: #fff7e6;
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.total-box .label {
   font-weight: bold;
   font-size: 1rem;
+  color: #333;
+}
+
+.total-box .valor {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #d40067;
+}
+
+.total-box .parcelado {
+  font-size: 0.85rem;
+  color: #666;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.link-imprimir {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  text-decoration: underline;
   cursor: pointer;
-  transition: background 0.3s;
-}
-
-.btn-boleto {
-  background-color: #34a853;
-  color: white;
-}
-
-.btn-boleto:hover {
-  background-color: #2e944b;
 }
 
 .btn-voltar {
-  background-color: #ffc107;
+  background-color: #ffb703;
   color: white;
+  border: none;
+  padding: 0.75rem;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .btn-voltar:hover {
