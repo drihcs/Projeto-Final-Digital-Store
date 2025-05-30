@@ -1,0 +1,50 @@
+.pagamento-wrapper {
+  padding: 2rem;
+  background-color: #f9f9fc;
+  text-align: center;
+}
+
+.pagamento-wrapper h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.pagamento-opcoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.opcao {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s;
+}
+
+.opcao:hover {
+  transform: translateY(-5px);
+}
+
+.opcao img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.opcao h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.opcao p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
