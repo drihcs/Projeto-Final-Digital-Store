@@ -1,7 +1,6 @@
 import "./MetodosPagamento.css";
 import boleto from '../../assets/invoice.svg'
 import credit from '../../assets/credit-card.svg'
-import debit from '../../assets/credit-card.svg'
 import pix from '../../assets/pix-logo.svg'
 
 export default function MetodosPagamentoPage() {
@@ -20,12 +19,6 @@ export default function MetodosPagamentoPage() {
             <img src={credit} alt="Cartão de Crédito" />
             <h2>Cartão de Crédito</h2>
             <p>Parcele suas compras em até 10x sem juros.</p>
-          </div>
-
-          <div className="opcao">
-            <img src={debit} alt="Cartão de Débito" />
-            <h2>Cartão de Débito</h2>
-            <p>Pagamento direto da sua conta bancária.</p>
           </div>
 
           <div className="opcao">

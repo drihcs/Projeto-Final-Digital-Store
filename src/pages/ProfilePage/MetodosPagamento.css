@@ -1,13 +1,20 @@
 .pagamento-wrapper {
-  padding: 2rem;
-  background-color: #f9f9fc;
+  padding: 0.5rem;
+  background-color: #ffffff;
   text-align: center;
 }
 
 .pagamento-wrapper h1 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.75px;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #CCCCCC;
+  color: #474747;
+  margin-top: -0.5rem;
+  text-align: left;
 }
 
 .pagamento-opcoes {
@@ -19,11 +26,16 @@
 }
 
 .opcao {
-  background: #fff;
+  background: #ffffff;
   border-radius: 8px;
   padding: 2rem 1.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .opcao:hover {
@@ -40,11 +52,11 @@
 .opcao h2 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #1F1F1F;
 }
 
 .opcao p {
   font-size: 0.95rem;
-  color: #555;
+  color: #474747;
   line-height: 1.4;
 }
