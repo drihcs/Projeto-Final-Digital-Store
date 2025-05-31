@@ -24,7 +24,7 @@ export function OfertSection() {
         <p className="lorem-text">
           Esse é o tênis ideal para quem ama estilo, exclusividade e conforto. O Air Jordan edição de colecionador combina design marcante com performance. Aproveite essa chance única de garantir o seu com desconto exclusivo. Oferta válida por tempo limitado ou enquanto durar o estoque.
         </p>
-        <NavLink to="/viewProduct">
+        <NavLink to="/products">
           <ButtonRosa />
         </NavLink>
       </div>

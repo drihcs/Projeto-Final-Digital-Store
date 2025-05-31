@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Carousel.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -22,21 +23,21 @@ const slides = [
   },
   {
     title: "Melhores Ofertas Personalizadas",
-    subtitle: "Queima de Estoque Nike ⚡",
+    subtitle: "Promoção de Estoque Zero ⚡",
     description:
       "Aproveite a liquidação: Nike em promoção com preços especiais para zerar o nosso estoque!",
     image: TenisSlide2,
   },
   {
     title: "Melhores Ofertas Personalizadas",
-    subtitle: "Queima de Estoque Nike 🎾",
+    subtitle: "Os Melhores Descontos 🎾",
     description:
       "Últimos pares de Nike em oferta! Corra antes que acabe e garanta seu tênis com superdesconto.",
     image: TenisSlide3,
   },
   {
     title: "Melhores Ofertas Personalizadas",
-    subtitle: "Queima de Estoque Nike 🛹",
+    subtitle: "Garanta já o seu Tênis 🛹",
     description:
       "Descontos arrasadores em tênis Nike! Só esta semana, ofertas especiais direto do nosso estoque.",
     image: TenisSlide4,
@@ -65,9 +66,9 @@ export function Carousel() {
               <h5>{slide.title}</h5>
               <h1>{slide.subtitle}</h1>
               <p className="text-responsive">{slide.description}</p>
-              {/* <Link to="/products"> */}
-              <ButtonRosa />
-              {/* </Link> */}
+              <Link to="/products">
+                <ButtonRosa />
+              </Link>
             </div>
             <img
               src={slide.image}

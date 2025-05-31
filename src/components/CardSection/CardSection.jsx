@@ -1,4 +1,5 @@
 import "./CardSection.css";
+import { Link } from "react-router-dom";
 import { ButtonCard } from "../Buttons/Button";
 
 import collection1 from "../../../public/collection1.png";
@@ -25,7 +26,9 @@ export function CardSection() {
             >
               <div className="oferta">{collection.offer}</div>
               <h3>{collection.title}</h3>
-              <ButtonCard />
+              <Link to="/products">
+                <ButtonCard />
+              </Link>
             </div>
           ))}
         </div>

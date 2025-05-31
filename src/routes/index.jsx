@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { HomePage } from "../pages/HomePage/HomePage.jsx";
 import { ProductListingPage } from "../pages/ProductListingPage/ProductListingPage";
@@ -41,6 +42,7 @@ export function AppRoutes() {
                     </ProtectedRoute>
                 }
             >
+                <Route index element={<Navigate to="meus-pedidos" replace />} />
                 <Route path="meus-pedidos" element={<MeusPedidos />} />
                 <Route path="minhas-informacoes" element={<MinhasInformacoes />} />
                 <Route path="metodos-pagamento" element={<MetodosPagamento />} />

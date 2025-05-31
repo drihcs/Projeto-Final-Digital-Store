@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Camiseta from "../../assets/tshirt.svg";
 import Calca from "../../assets/pants.svg";
 import Bone from "../../assets/bone-icon.svg";
@@ -15,31 +16,41 @@ export function Section() {
           <div className="main">
             <div className="f">
               <picture>
-                <img src={Camiseta} alt="Camiseta" />
+                <Link to="/products">
+                  <img src={Camiseta} alt="Camiseta" />
+                </Link>
               </picture>
               <p>Camisetas</p>
             </div>
             <div className="f">
               <picture>
-                <img src={Calca} alt="Calça" />
+                <Link to="/products">
+                  <img src={Calca} alt="Calça" />
+                </Link>
               </picture>
               <p>Calças</p>
             </div>
             <div className="f">
               <picture>
-                <img src={Bone} alt="Boné" />
+                <Link to="/products">
+                  <img src={Bone} alt="Boné" />
+                </Link>
               </picture>
               <p>Bonés</p>
             </div>
             <div className="f">
               <picture>
-                <img src={Headphone} alt="Headphone" />
+                <Link to="/products">
+                  <img src={Headphone} alt="Headphone" />
+                </Link>
               </picture>
               <p>Headphones</p>
             </div>
             <div className="f">
               <picture>
-                <img src={Tenis} alt="Tênis" />
+                <Link to="/products">
+                  <img src={Tenis} alt="Tênis" />
+                </Link>
               </picture>
               <p>Tênis</p>
             </div>
