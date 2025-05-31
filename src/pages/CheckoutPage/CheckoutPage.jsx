@@ -170,7 +170,13 @@ export default function CheckoutPage() {
     await supabase.from('compras_produtos').insert(itens);
     await supabase.from('carrinho').delete().eq('usuario_id', user.id);
 
-    localStorage.setItem('ultimaCompraId', novaCompra.id);
+    localStorage.setItem('ultimaCompraDados', JSON.stringify({
+      nome: formData.nome,
+      cpf: formData.cpf,
+      total,
+      endereco_entrega: enderecoCompleto
+    }));
+
     navigate('/sucesso');
   }
 

@@ -2,29 +2,31 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boleto Digital - Drip Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Simula busca dos dados do localStorage
     document.addEventListener('DOMContentLoaded', () => {
       const compra = JSON.parse(localStorage.getItem('ultimaCompraDados'));
-      if (!compra) return;
+      if (!compra || !compra.nome || !compra.total) return;
 
       document.getElementById('nome-pagador').textContent = compra.nome;
       document.getElementById('cpf-pagador').textContent = compra.cpf;
-      document.getElementById('valor-documento').textContent = `R$ ${parseFloat(compra.total).toFixed(2)}`;
+      document.getElementById('valor-documento').textContent = Number(compra.total).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      });
       document.getElementById('endereco-pagador').textContent = compra.endereco_entrega;
     });
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white text-black p-6 max-w-2xl mx-auto border border-gray-300">
-  <h1 class="text-2xl font-bold text-center mb-6">Boleto Bancário - Drip Store</h1>
+  <h1 class="text-2xl font-bold text-center mb-6 text-[#C92071]">Boleto Bancário - Digital Store</h1>
 
   <div class="flex justify-between mb-4">
-    <div><span class="font-semibold">Beneficiário:</span> Drip Store LTDA</div>
+    <div><span class="font-semibold">Beneficiário:</span> Digital Store LTDA</div>
     <div><span class="font-semibold">Vencimento:</span> 10/06/2025</div>
   </div>
 
@@ -35,14 +37,14 @@
 
   <hr class="border-black my-6">
 
-  <div class="mb-4"><span class="font-semibold">Linha digitável:</span> 00190.00009 01234.567891 23456.789012 3
-    12340000021900</div>
+  <div class="mb-4"><span class="font-semibold">Linha digitável:</span>
+    00190.00009 01234.567891 23456.789012 3 12340000021900
+  </div>
 
   <div class="text-center mt-8">
-    <img src="https://dummyimage.com/500x60/000/fff.png&text=|| ||| | |||| || | || || |||"
-      alt="Código de barras fictício" class="mx-auto mb-6">
+    <img src="bar-code.png" alt="Código de barras fictício" class="mx-auto mb-6 w-96 h-28">
     <button onclick="window.print()"
-      class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded">Imprimir Boleto</button>
+      class="bg-[#C92071] hover:bg-[#991956] text-white font-bold py-2 px-6 rounded">Imprimir Boleto</button>
   </div>
 </body>
 

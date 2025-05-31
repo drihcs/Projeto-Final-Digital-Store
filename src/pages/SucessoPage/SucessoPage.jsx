@@ -7,6 +7,7 @@ import './SucessoPage.css';
 
 export default function SucessoPage() {
   const [compra, setCompra] = useState(null);
+  const [produtosResumo, setProdutosResumo] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,18 +18,32 @@ export default function SucessoPage() {
     const compraId = localStorage.getItem('ultimaCompraId');
     if (!compraId) return;
 
-    const { data: compra, error } = await supabase
+    const { data: compraData, error } = await supabase
       .from('compras')
       .select('*')
       .eq('id', compraId)
       .single();
 
-    if (error) {
-      console.error('Erro ao carregar compra:', error.message);
+    if (error || !compraData) {
+      console.error('Erro ao carregar compra:', error?.message);
       return;
     }
 
-    setCompra(compra);
+    setCompra(compraData);
+
+    // Carrega produtos da compra
+    const { data: itensCompra, error: errorItens } = await supabase
+      .from('compras_produtos')
+      .select('*, produto:produtos(id, nome, imagem_url)')
+      .eq('compra_id', compraId);
+
+    if (errorItens) {
+      console.error('Erro ao buscar produtos da compra:', errorItens.message);
+      return;
+    }
+
+    const produtos = itensCompra.map(item => item.produto);
+    setProdutosResumo(produtos);
   }
 
   return (
@@ -51,23 +66,40 @@ export default function SucessoPage() {
 
               <section>
                 <h3>Informações de Entrega</h3>
-                {compra.endereco_entrega.split(',').map((linha, i) => (
-                  <p key={i}>{linha.trim()}</p>
-                ))}
+                {(() => {
+                  const partes = compra.endereco_entrega.split(',');
+                  return (
+                    <>
+                      <p><strong>Rua:</strong> {partes[0]?.trim()}</p>
+                      <p><strong>Bairro:</strong> {partes[1]?.trim()}</p>
+                      <p><strong>Cidade:</strong> {partes[2]?.trim()}</p>
+                      <p><strong>CEP:</strong> {partes[3]?.trim()}</p>
+                      {partes[4] && <p><strong>Complemento:</strong> {partes[4]?.trim()}</p>}
+                    </>
+                  );
+                })()}
               </section>
 
               <section>
                 <h3>Informações de Pagamento</h3>
                 <p><strong>Forma:</strong> {compra.forma_pagamento === 'cartao' ? 'Cartão de Crédito' : 'Boleto Bancário'}</p>
-                <p><strong>Final:</strong> ************2020</p>
+                {compra.forma_pagamento === 'cartao' && (
+                  <p><strong>Final:</strong> ************2020</p>
+                )}
               </section>
 
               <section className="resumo-compra">
                 <h3>Resumo da compra</h3>
-                <div className="produto-item">
-                  <img src="/produto-exemplo.png" alt="Produto" />
-                  <p>Tênis Nike Revolution 6 Next Nature Masculino</p>
-                </div>
+                {produtosResumo.length > 0 ? (
+                  produtosResumo.map((produto, index) => (
+                    <div key={index} className="produto-item">
+                      <img src={produto.imagem_url} alt={produto.nome} />
+                      <p>{produto.nome}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p>Nenhum produto encontrado.</p>
+                )}
 
                 <div className="total-box">
                   <p className="label">Total</p>
