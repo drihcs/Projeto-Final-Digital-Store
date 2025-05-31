@@ -1,6 +1,6 @@
 .checkout-wrapper {
   padding: 2rem;
-  background-color: #f8f7fc;
+  background-color: #F9F8FE;
   min-height: 100vh;
 }
 
@@ -107,15 +107,22 @@ select {
 .resumo-checkout {
   width: 320px;
   background: #fff;
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
 
 .resumo-checkout h3 {
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #474747;
+  width: 260px;
+  border-bottom: 1px solid #CCCCCC;
   margin-bottom: 1rem;
-  color: #333;
+  margin-top: -0.5rem;
+  margin-left: -0.1rem;
 }
 
 .resumo-checkout p {
@@ -126,16 +133,28 @@ select {
   color: #333;
 }
 
-.resumo-checkout .resumo-total {
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 1rem;
+.resumo-checkout .parcelado {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  text-align: right;
+  color: #8F8F8F;
 }
 
-.resumo-checkout .parcelado {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 1rem;
+.resumo-checkout .resumo-total {
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  color: #1F1F1F;
+}
+
+p .parcelado {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 1px;
+  color: #8F8F8F;
 }
 
 .produto-resumo {
@@ -143,6 +162,8 @@ select {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  width: 260px;
+  border-bottom: 1px solid #CCCCCC;
 }
 
 .produto-resumo img {
@@ -150,6 +171,7 @@ select {
   height: 48px;
   object-fit: cover;
   border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
 .resumo-mobile {
