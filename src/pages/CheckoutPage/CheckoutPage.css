@@ -25,9 +25,11 @@
 }
 
 .formulario-checkout h2 {
-  font-size: 24px;
-  margin-bottom: 1rem;
-  color: #333;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: #1F1F1F;
 }
 
 fieldset {
@@ -37,11 +39,26 @@ fieldset {
 }
 
 legend {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.75px;
   margin-bottom: 1rem;
-  color: #333;
+  color: #474747;
+  text-align: left;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #CCCCCC;
+  width: 1035px;
 }
+
+label {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  color: #474747;
+}
+
 
 input,
 textarea,
@@ -49,10 +66,10 @@ select {
   width: 100%;
   padding: 0.8rem;
   margin-bottom: 1rem;
-  border: 1px solid #ccc;
+  margin-top: 0.5rem;
   border-radius: 6px;
   font-size: 14px;
-  background-color: #fff;
+  background-color: #F5F5F5;
 }
 
 .linha-cartao {
@@ -71,8 +88,8 @@ select {
 }
 
 .btn-finalizar {
-  background-color: #ffb800;
-  color: white;
+  background-color: #F6AA1C;
+  color: #F5F5F5;
   font-weight: bold;
   padding: 1rem;
   font-size: 16px;
@@ -84,7 +101,7 @@ select {
 }
 
 .btn-finalizar:hover {
-  background-color: #e0a700;
+  background-color: #b88526;
 }
 
 .resumo-checkout {

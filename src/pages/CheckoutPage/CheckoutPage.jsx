@@ -189,19 +189,28 @@ export default function CheckoutPage() {
 
             <fieldset>
               <legend>Informações Pessoais</legend>
-              <input name="nome" placeholder="Nome Completo *" required onChange={handleChange} />
-              <input name="cpf" placeholder="CPF *" required value={formData.cpf} onChange={handleChange} />
-              <input name="email" placeholder="E-mail *" type="email" required onChange={handleChange} />
-              <input name="celular" placeholder="Celular *" required value={formData.celular} onChange={handleChange} />
+              <label htmlFor="text">Nome Completo*</label>
+              <input name="nome" placeholder="Insira seu nome" required onChange={handleChange} />
+              <label htmlFor="number">CPF*</label>
+              <input name="cpf" placeholder="Insira seu CPF" required value={formData.cpf} onChange={handleChange} />
+              <label htmlFor="text">E-mail*</label>
+              <input name="email" placeholder="Insira seu e-mail" type="email" required onChange={handleChange} />
+              <label htmlFor="number">Celular*</label>
+              <input name="celular" placeholder="Insira seu celular" required value={formData.celular} onChange={handleChange} />
             </fieldset>
 
             <fieldset>
               <legend>Informações de Entrega</legend>
-              <input name="endereco" placeholder="Endereço *" required onChange={handleChange} />
-              <input name="bairro" placeholder="Bairro *" required onChange={handleChange} />
-              <input name="cidade" placeholder="Cidade *" required onChange={handleChange} />
-              <input name="cep" placeholder="CEP *" required value={formData.cep} onChange={handleChange} />
-              <input name="complemento" placeholder="Complemento" onChange={handleChange} />
+              <label htmlFor="text">Endereço*</label>
+              <input name="endereco" placeholder="Insira seu endereço" required onChange={handleChange} />
+              <label htmlFor="text">Bairro*</label>
+              <input name="bairro" placeholder="Insira seu bairro" required onChange={handleChange} />
+              <label htmlFor="texto">Cidade*</label>
+              <input name="cidade" placeholder="Insira sua cidade" required onChange={handleChange} />
+              <label htmlFor="number">CEP*</label>
+              <input name="cep" placeholder="Insira seu CEP" required value={formData.cep} onChange={handleChange} />
+              <label htmlFor="text">Complemento</label>
+              <input name="complemento" placeholder="Insira um complemento (opcional)" onChange={handleChange} />
             </fieldset>
 
             <fieldset>

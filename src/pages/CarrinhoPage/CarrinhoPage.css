@@ -1,6 +1,6 @@
 /* Wrapper e Grid */
 .carrinho-wrapper {
-  background-color: #f9f9fc;
+  background-color: #F9F8FE;
   padding: 2rem;
   display: flex;
   justify-content: center;
@@ -16,11 +16,28 @@
 
 /* Caixa Carrinho */
 .carrinho-box {
+  width: 890px;
+  height: 352px;
+  margin-top: 10px;
+  left: 99px;
   flex: 2;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.carrinho-box h2 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.75px;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #CCCCCC;
+  color: #474747;
+  margin-top: -0.5rem;
+  text-align: left;
 }
 
 .carrinho-header {
@@ -40,6 +57,15 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
+}
+
+.item-carrinho h3 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.75px;
+  color: #1F1F1F;
+  text-align: left;
 }
 
 .item-carrinho img {
