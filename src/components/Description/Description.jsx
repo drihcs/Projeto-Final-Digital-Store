@@ -41,12 +41,17 @@ export function DescProduct() {
         const { data: produto, error } = await supabase
             .from('produtos')
             .select('*')
-            .ilike('descricao', '%Air Force 1%') // ou outra descrição exata
+            .ilike('nome', '%Tênis Nike Air Force 1%') // ou outra descrição exata
             .limit(1)
             .single();
 
         if (error || !produto) {
             alert('Produto não encontrado no banco de dados.');
+            return;
+        }
+
+        if (!produto) {
+            alert('Produto ainda não carregado.');
             return;
         }
 

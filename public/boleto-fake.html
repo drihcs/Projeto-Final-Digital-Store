@@ -5,102 +5,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boleto Digital - Drip Store</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #fff;
-      color: #000;
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-      border: 1px solid #ccc;
-    }
+  <script>
+    // Simula busca dos dados do localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const compra = JSON.parse(localStorage.getItem('ultimaCompraDados'));
+      if (!compra) return;
 
-    h1 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .boleto-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1.5rem;
-    }
-
-    .linha {
-      border-top: 1px solid #000;
-      margin: 1.5rem 0;
-    }
-
-    .info-box {
-      margin-bottom: 1rem;
-    }
-
-    .info-box strong {
-      display: inline-block;
-      width: 160px;
-    }
-
-    .barcode {
-      margin-top: 2rem;
-      text-align: center;
-    }
-
-    .barcode img {
-      width: 100%;
-      max-width: 500px;
-      height: 60px;
-      background: #000;
-    }
-
-    .btn-imprimir {
-      display: block;
-      margin: 2rem auto 0;
-      background: #ffb703;
-      color: #fff;
-      font-weight: bold;
-      border: none;
-      padding: 0.75rem 2rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-  </style>
+      document.getElementById('nome-pagador').textContent = compra.nome;
+      document.getElementById('cpf-pagador').textContent = compra.cpf;
+      document.getElementById('valor-documento').textContent = `R$ ${parseFloat(compra.total).toFixed(2)}`;
+      document.getElementById('endereco-pagador').textContent = compra.endereco_entrega;
+    });
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <h1>Boleto Bancário - Drip Store</h1>
+<body class="bg-white text-black p-6 max-w-2xl mx-auto border border-gray-300">
+  <h1 class="text-2xl font-bold text-center mb-6">Boleto Bancário - Drip Store</h1>
 
-  <div class="boleto-header">
-    <div><strong>Beneficiário:</strong> Drip Store LTDA</div>
-    <div><strong>Vencimento:</strong> 10/06/2025</div>
-  </div>
-
-  <div class="info-box">
-    <strong>Valor do documento:</strong> R$ 219,00
-  </div>
-  <div class="info-box">
-    <strong>CPF do pagador:</strong> 123.456.789-00
-  </div>
-  <div class="info-box">
-    <strong>Nome do pagador:</strong> Francisco Antonio Pereira
-  </div>
-  <div class="info-box">
-    <strong>Endereço:</strong> Rua João Pessoa, 333 - Fortaleza/CE
+  <div class="flex justify-between mb-4">
+    <div><span class="font-semibold">Beneficiário:</span> Drip Store LTDA</div>
+    <div><span class="font-semibold">Vencimento:</span> 10/06/2025</div>
   </div>
 
-  <div class="linha"></div>
+  <div class="mb-3"><span class="font-semibold">Valor do documento:</span> <span id="valor-documento">R$ --</span></div>
+  <div class="mb-3"><span class="font-semibold">CPF do pagador:</span> <span id="cpf-pagador">---</span></div>
+  <div class="mb-3"><span class="font-semibold">Nome do pagador:</span> <span id="nome-pagador">---</span></div>
+  <div class="mb-6"><span class="font-semibold">Endereço:</span> <span id="endereco-pagador">---</span></div>
 
-  <div class="info-box">
-    <strong>Linha digitável:</strong> 00190.00009 01234.567891 23456.789012 3 12340000021900
-  </div>
+  <hr class="border-black my-6">
 
-  <div class="barcode">
+  <div class="mb-4"><span class="font-semibold">Linha digitável:</span> 00190.00009 01234.567891 23456.789012 3
+    12340000021900</div>
+
+  <div class="text-center mt-8">
     <img src="https://dummyimage.com/500x60/000/fff.png&text=|| ||| | |||| || | || || |||"
-      alt="Código de barras fictício">
+      alt="Código de barras fictício" class="mx-auto mb-6">
+    <button onclick="window.print()"
+      class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded">Imprimir Boleto</button>
   </div>
-
-  <button class="btn-imprimir" onclick="window.print()">Imprimir Boleto</button>
 </body>
 
 </html>

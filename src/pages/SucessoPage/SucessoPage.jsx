@@ -14,20 +14,21 @@ export default function SucessoPage() {
   }, []);
 
   async function carregarCompra() {
-    const { data: sessionData } = await supabase.auth.getSession();
-    const user = sessionData?.session?.user;
-    if (!user) return;
+    const compraId = localStorage.getItem('ultimaCompraId');
+    if (!compraId) return;
 
-    const { data: compras } = await supabase
+    const { data: compra, error } = await supabase
       .from('compras')
       .select('*')
-      .eq('usuario_id', user.id)
-      .order('criado_em', { ascending: false })
-      .limit(1);
+      .eq('id', compraId)
+      .single();
 
-    if (compras?.length > 0) {
-      setCompra(compras[0]);
+    if (error) {
+      console.error('Erro ao carregar compra:', error.message);
+      return;
     }
+
+    setCompra(compra);
   }
 
   return (
