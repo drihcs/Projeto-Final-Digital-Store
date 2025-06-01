@@ -6,6 +6,7 @@ header {
   margin-top: -2rem;
   box-shadow: 0px 4px 8px rgba(107, 106, 106, 0.1);
   position: relative;
+  z-index: 999;
 }
 
 header .heading {
@@ -118,4 +119,122 @@ header div .entrar {
   align-items: center;
   gap: 0.5rem;
   margin-right: 1rem;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 1rem;
+  z-index: 1002;
+  position: relative;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #474747;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.menu-toggle:hover span {
+  background-color: #c92071;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+  background-color: #c92071;
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+  background-color: #c92071;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 999;
+  }
+
+  header .heading {
+    height: 80px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    gap: 1rem;
+  }
+
+  .search-container {
+    display: none !important;
+  }
+
+  .cadastre,
+  .entrar,
+  .usuario-box,
+  .sair {
+    display: none;
+  }
+
+  .cart {
+    margin: 0;
+    margin-right: 0.5rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  header .heading div {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  header .heading {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    gap: 1.5rem;
+  }
+
+  .search-container {
+    width: 400px;
+  }
+
+  .entrar {
+    margin-right: 2rem;
+  }
+
+  .cart {
+    margin-right: 2rem;
+    margin-left: 0;
+  }
+
+  .usuario-logado {
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header .heading {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .menu-toggle {
+    margin-left: 0.5rem;
+  }
 }

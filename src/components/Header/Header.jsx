@@ -10,10 +10,12 @@ import { supabase } from "../../services/supabaseClient.js";
 
 export function Header() {
   const [showCartModal, setShowCartModal] = useState(false);
+  const [menuAberto, setMenuAberto] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const toggleCartModal = () => setShowCartModal(!showCartModal);
+  const toggleMenu = () => setMenuAberto(!menuAberto);
 
   useEffect(() => {
     async function fetchUser() {
@@ -84,9 +86,21 @@ export function Header() {
             style={{ cursor: "pointer" }}
             onClick={toggleCartModal}
           />
+
+          {/* Botão hamburguer para mobile */}
+          <button
+            className={`menu-toggle ${menuAberto ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Menu de navegação"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
-      <NavBar />
+
+      <NavBar menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
       <CartModal show={showCartModal} onClose={toggleCartModal} />
     </header>
   );
