@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../../services/supabaseClient';
 import { Header } from '../../components/Header/Header';
 import { Footer } from '../../components/Footer/Footer';
-import { ProductCard } from "../../components/ProductCard/ProductCard.jsx";
+import { ProductCard } from '../../components/ProductCard/ProductCard.jsx';
 import { useNavigate } from 'react-router-dom';
 import '../../pages/CarrinhoPage/CarrinhoPage.css';
 
@@ -17,11 +17,7 @@ export default function CarrinhoPage() {
 
   async function buscarCarrinho() {
     setLoading(true);
-
-    const { data: carrinhoRaw, error } = await supabase
-      .from('carrinho')
-      .select('*');
-
+    const { data: carrinhoRaw, error } = await supabase.from('carrinho').select('*');
     if (error) {
       console.error(error);
       setLoading(false);
@@ -29,7 +25,6 @@ export default function CarrinhoPage() {
     }
 
     const produtosIds = carrinhoRaw.map(item => item.produto_id);
-
     const { data: produtos } = await supabase
       .from('produtos')
       .select('*')
@@ -62,9 +57,16 @@ export default function CarrinhoPage() {
       <Header />
       <main className="carrinho-wrapper">
         <div className="carrinho-grid">
-          {/* Bloco Carrinho */}
           <section className="carrinho-box">
             <h2>MEU CARRINHO</h2>
+
+            <div className="carrinho-header">
+              <span className="col-produto">PRODUTO</span>
+              <span className="col-quantidade">QUANTIDADE</span>
+              <span className="col-preco">UNITÁRIO</span>
+              <span className="col-total">TOTAL</span>
+            </div>
+
             {loading ? (
               <p>Carregando...</p>
             ) : carrinho.length === 0 ? (
@@ -72,30 +74,52 @@ export default function CarrinhoPage() {
                 Seu carrinho está vazio. <a href="/products">Ver produtos</a>
               </div>
             ) : (
-              carrinho.map((item) => (
+              carrinho.map(item => (
                 <div className="item-carrinho" key={item.id}>
-                  <img src={item.produto.imagem_url} alt={item.produto.nome} />
-                  <div className="item-info">
-                    <h3>{item.produto.nome}</h3>
-                    <p>Cor: {item.produto.cor || '---'} | Tamanho: {item.produto.tamanho || '---'}</p>
-                    <p>
-                      <span className="risco">R$ {item.produto.preco_original?.toFixed(2)}</span>{' '}
-                      <strong>R$ {item.produto.preco.toFixed(2)}</strong>
-                    </p>
-                    <button onClick={() => removerItem(item.id)} className="btn-remover">
-                      Remover item
-                    </button>
+                  <div className="col-produto">
+                    <img src={item.produto.imagem_url} alt={item.produto.nome} />
+                    <div>
+                      <h3>{item.produto.nome}</h3>
+                      {/* <p>Cor: {item.produto.cor || '---'} | Tamanho: {item.produto.tamanho || '---'}</p> */}
+                      <button onClick={() => removerItem(item.id)} className="btn-remover">
+                        Remover item
+                      </button>
+                    </div>
                   </div>
-                  <div className="item-total">
-                    <p>Qtd: {item.quantidade}</p>
-                    <p>Total: R$ {(item.produto.preco * item.quantidade).toFixed(2)}</p>
+
+                  <div className="col-quantidade">
+                    <button>-</button>
+                    <span>{item.quantidade}</span>
+                    <button>+</button>
+                  </div>
+
+                  <div className="col-preco">
+                    <span className="risco">R$ {item.produto.preco_original?.toFixed(2)}</span>
+                    <br />
+                    <strong>R$ {item.produto.preco.toFixed(2)}</strong>
+                  </div>
+
+                  <div className="col-total">
+                    <strong>R$ {(item.produto.preco * item.quantidade).toFixed(2)}</strong>
                   </div>
                 </div>
               ))
             )}
+
+            <div className="carrinho-opcoes">
+              <div>
+                <label>Cupom de desconto</label>
+                <input type="text" placeholder="Insira seu código" />
+                <button>OK</button>
+              </div>
+              <div>
+                <label>Calcular frete</label>
+                <input type="text" placeholder="Insira seu CEP" />
+                <button>OK</button>
+              </div>
+            </div>
           </section>
 
-          {/* Bloco Resumo */}
           <aside className="resumo-box">
             <h2>RESUMO</h2>
             <p><span>Subtotal:</span> <span>R$ {subtotal.toFixed(2)}</span></p>
