@@ -247,3 +247,85 @@
 .btn-slide .botaoNavegacao:hover {
   color: #c92071;
 }
+
+@media (max-width: 768px) {
+
+  .caminhoTenis,
+  .descricaoProduto {
+    margin: 0 2rem;
+    flex-direction: column;
+  }
+
+  .imagemGrande img {
+    min-width: 100%;
+    height: auto;
+  }
+
+  .miniImagens {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .dadosProduto {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .price {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tamanhoSapato {
+    flex-wrap: wrap;
+  }
+
+  .btn-comprar {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .caminhoTenis,
+  .descricaoProduto {
+    margin: 0 1rem;
+  }
+
+  .imagemGrande img {
+    width: 100%;
+    height: auto;
+  }
+
+  .miniImagens img {
+    width: 60px;
+  }
+
+  .dadosProduto {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .tamanhoItem {
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+
+  .btn-comprar {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .avaliacao {
+    width: auto;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  .btn-slide {
+    padding: 0;
+  }
+}
