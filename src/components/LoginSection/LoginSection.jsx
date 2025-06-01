@@ -70,9 +70,16 @@ export function SectionLogin() {
 
                     <div className='login-rede-sociais'>
                         <span>Ou faça login com</span>
-                        <img src={Gmail} className='sapatos-login' alt="Gmail Icon" />
-                        <img src={Face} className='sapatos-login' alt="Facebook Icon" />
+                        <div className="social-buttons">
+                            <button onClick={() => supabase.auth.signInWithOAuth({ provider: 'google' })}>
+                                <img src={Gmail} alt="Login com Google" />
+                            </button>
+                            <button onClick={() => supabase.auth.signInWithOAuth({ provider: 'facebook' })}>
+                                <img src={Face} alt="Login com Facebook" />
+                            </button>
+                        </div>
                     </div>
+
                 </form>
             </div>
 

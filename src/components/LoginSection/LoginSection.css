@@ -14,7 +14,7 @@
   top: 200px;
   left: 100px;
   border-radius: 8px;
-  padding: 20px 30px;
+  padding: 15px 30px;
   outline: 0;
 }
 
@@ -52,17 +52,15 @@
 
 .form h1 {
   color: #1F1F1F;
-  font-family: Inter;
   font-weight: 700;
   font-size: 32px;
   line-height: 36px;
   letter-spacing: 1px;
-  margin-bottom: -8px;
+  margin-bottom: -6px;
 }
 
 .form p {
   color: #474747;
-  font-family: Inter;
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
@@ -120,7 +118,7 @@ input::placeholder {
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
-  margin-top: 10px;
+  margin-top: 2px;
   margin-bottom: 10px;
   letter-spacing: 0.25px;
   text-decoration: underline;
@@ -155,21 +153,69 @@ input::placeholder {
 
 .login-rede-sociais {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: -12px;
-  margin-bottom: -12px;
+  margin-top: 1.5rem;
+  gap: 0.5rem;
 }
 
 .login-rede-sociais span {
-  color: #4D496F;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-  letter-spacing: 0.75px;
+  font-size: 14px;
+  color: #1F1F1F;
+  margin-bottom: -2rem;
+  margin-top: -1rem;
 }
+
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-buttons button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  box-shadow: none;
+}
+
+.social-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.social-buttons img {
+  width: 25px;
+  height: 25px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+
+/* .botao-rede-social {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.botao-rede-social img {
+  width: 40px;
+  height: 40px;
+  margin: 0 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.botao-rede-social img:hover {
+  transform: scale(1.1);
+} */
+
 
 /* .icon-facebook,
 .icon-google {
