@@ -177,12 +177,12 @@ const initialProducts = [
 export function ProductPage() {
   const [sortOption, setSortOption] = useState("mais-relevantes");
   const [filteredAndSortedProducts, setFilteredAndSortedProducts] = useState(initialProducts);
+  const [showFilters, setShowFilters] = useState(false);
 
   // Estados para os filtros
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedGenders, setSelectedGenders] = useState([]);
-  const [selectedCondition, setSelectedCondition] = useState(""); // Para o radio button
 
   // Função para normalizar e converter preços para números
   const parsePrice = (priceString) => {
@@ -192,33 +192,26 @@ export function ProductPage() {
 
   // ----- Lógica de Filtragem e Ordenação Principal -----
   useEffect(() => {
-    let currentProducts = [...initialProducts]; // Começa com a lista completa de produtos
+    let currentProducts = [...initialProducts];
 
     // 1. Aplicar Filtros
-    // Filtro por Marca
     if (selectedBrands.length > 0) {
       currentProducts = currentProducts.filter(product =>
         selectedBrands.includes(product.marca)
       );
     }
 
-    // Filtro por Categoria
     if (selectedCategories.length > 0) {
       currentProducts = currentProducts.filter(product =>
         selectedCategories.includes(product.categoria)
       );
     }
 
-    // Filtro por Gênero
     if (selectedGenders.length > 0) {
       currentProducts = currentProducts.filter(product =>
         selectedGenders.includes(product.genero)
       );
     }
-
-    // Filtro por Condição (se você tiver essa propriedade nos seus produtos)
-    // Exemplo: if (selectedCondition === "Usado") { ... }
-    // Por enquanto, não há 'condição' nos produtos, então essa parte seria adicionada depois.
 
     // 2. Aplicar Ordenação
     switch (sortOption) {
@@ -238,14 +231,11 @@ export function ProductPage() {
         break;
       case "mais-relevantes":
       default:
-        // Se a ordem inicial é baseada em alguma relevância, você pode manter essa lógica aqui.
-        // Por simplicidade, para "mais relevantes" após filtro, ele manterá a ordem original dos produtos filtrados.
-        // Se precisar de uma ordem específica para "mais relevantes", você precisaria de um critério de relevância.
         break;
     }
 
     setFilteredAndSortedProducts(currentProducts);
-  }, [sortOption, selectedBrands, selectedCategories, selectedGenders, selectedCondition]); // Todas as dependências dos filtros e ordenação
+  }, [sortOption, selectedBrands, selectedCategories, selectedGenders]);
 
   // ----- Manipuladores de Evento -----
 
@@ -280,8 +270,8 @@ export function ProductPage() {
     );
   };
 
-  const handleConditionChange = (event) => {
-    setSelectedCondition(event.target.value);
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
   };
 
   return (
@@ -305,7 +295,11 @@ export function ProductPage() {
         </div>
 
         <div className="content">
-          <aside className="filter">
+          <button className="filter-toggle" onClick={toggleFilters}>
+            {showFilters ? 'Ocultar Filtros' : 'Mostrar Filtros'}
+          </button>
+
+          <aside className={`filter ${showFilters ? 'show' : ''}`}>
             <p>Filtrar por</p>
             <hr />
             <p>Marca</p>
@@ -314,9 +308,9 @@ export function ProductPage() {
                 <div key={index}>
                   <input
                     type="checkbox"
-                    value={brand} // O valor do checkbox
-                    checked={selectedBrands.includes(brand)} // Se está selecionado
-                    onChange={handleBrandChange} // Manipulador de evento
+                    value={brand}
+                    checked={selectedBrands.includes(brand)}
+                    onChange={handleBrandChange}
                   />
                   <label>{brand}</label>
                 </div>
@@ -350,27 +344,6 @@ export function ProductPage() {
                 </div>
               ))}
             </form>
-            <p>Estado</p>
-            <div>
-              <input
-                type="radio"
-                name="estado"
-                value="Novo"
-                checked={selectedCondition === "Novo"}
-                onChange={handleConditionChange}
-              />
-              <label>Novo</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="estado"
-                value="Usado"
-                checked={selectedCondition === "Usado"}
-                onChange={handleConditionChange}
-              />
-              <label>Usado</label>
-            </div>
           </aside>
 
           <div className="second">
