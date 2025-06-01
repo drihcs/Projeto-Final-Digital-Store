@@ -76,22 +76,49 @@ export function UserCad() {
 
                         <div className="input-group">
                             <label htmlFor="name">Nome Completo*</label>
-                            <input type="text" id="name" placeholder="Insira seu nome" required />
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Insira seu nome"
+                                required
+                                autoComplete="name"
+                            />
                         </div>
 
                         <div className="input-group">
                             <label htmlFor="number">CPF*</label>
-                            <input type="text" id="number" placeholder="Insira seu CPF" required />
+                            <input
+                                type="text"
+                                id="number"
+                                placeholder="Insira seu CPF"
+                                required
+                                maxLength="14"
+                                pattern="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}"
+                                autoComplete="off"
+                            />
                         </div>
 
                         <div className="input-group">
                             <label htmlFor="email">E-mail*</label>
-                            <input type="text" id="email" placeholder="Insira seu email" required />
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Insira seu email"
+                                required
+                                autoComplete="email"
+                            />
                         </div>
 
                         <div className="input-group">
                             <label htmlFor="celular">Celular*</label>
-                            <input type="text" id="celular" placeholder="Insira seu celular" />
+                            <input
+                                type="tel"
+                                id="celular"
+                                placeholder="Insira seu celular"
+                                maxLength="15"
+                                pattern="[0-9\(\)\-\s\+]+"
+                                autoComplete="tel"
+                            />
                         </div>
                     </div>
 
@@ -104,36 +131,72 @@ export function UserCad() {
 
                         <div className="input-group">
                             <label htmlFor="endereco">Endereço*</label>
-                            <input type="text" id="endereco" placeholder="Insira seu endereço" required />
+                            <input
+                                type="text"
+                                id="endereco"
+                                placeholder="Insira seu endereço"
+                                required
+                                autoComplete="street-address"
+                            />
                         </div>
 
                         <div className="input-group">
                             <label htmlFor="bairro">Bairro*</label>
-                            <input type="text" id="bairro" placeholder="Insira seu bairro" required />
+                            <input
+                                type="text"
+                                id="bairro"
+                                placeholder="Insira seu bairro"
+                                required
+                                autoComplete="address-level2"
+                            />
                         </div>
 
                         <div className="input-group">
                             <label htmlFor="cidade">Cidade*</label>
-                            <input type="text" id="cidade" placeholder="Insira sua cidade" required />
+                            <input
+                                type="text"
+                                id="cidade"
+                                placeholder="Insira sua cidade"
+                                required
+                                autoComplete="address-level2"
+                            />
                         </div>
 
                         <div className="input-group">
                             <label htmlFor="cep">CEP*</label>
-                            <input type="text" id="cep" placeholder="Insira seu CEP" required />
+                            <input
+                                type="text"
+                                id="cep"
+                                placeholder="Insira seu CEP"
+                                required
+                                maxLength="9"
+                                pattern="[0-9]{5}-?[0-9]{3}"
+                                autoComplete="postal-code"
+                            />
                         </div>
 
                         <div className="input-group">
                             <label htmlFor="complemento">Complemento</label>
-                            <input type="text" id="complemento" placeholder="Insira complemento" />
+                            <input
+                                type="text"
+                                id="complemento"
+                                placeholder="Insira complemento"
+                                autoComplete="address-line2"
+                            />
                         </div>
                     </div>
 
                     <div className="container-checkbox">
-                        <input className="custon-checkbox" type="checkbox" />
-                        <p className="paragraph">
+                        <input
+                            className="custon-checkbox"
+                            type="checkbox"
+                            id="newsletter"
+                            name="newsletter"
+                        />
+                        <label htmlFor="newsletter" className="paragraph">
                             Quero receber por email ofertas e novidades das lojas da Digital Store.
                             A frequência de envios pode variar de acordo com a interação do cliente.
-                        </p>
+                        </label>
                     </div>
 
                     <button type="submit">Criar Conta</button>
