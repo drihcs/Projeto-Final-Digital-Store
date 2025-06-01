@@ -1,12 +1,71 @@
-# React + Vite
+# 💼 Drip Store - E-commerce em React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto completo de uma loja virtual de roupas e calçados, com funcionalidades reais de cadastro, login, carrinho de compras, checkout e visualização de pedidos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+* ✅ Página inicial com destaques e banners
+* ✅ Visualização de produtos cadastrados via Supabase
+* ✅ Adição e remoção de produtos no carrinho
+* ✅ Finalização de compra com formulário validado e máscara de campos
+* ✅ Pagamento via cartão ou boleto (simulado)
+* ✅ Geração de **boleto dinâmico** com dados do cliente
+* ✅ Histórico de pedidos do usuário autenticado
+* ✅ Login com e-mail/senha ou **Google** e **Facebook**
+* ✅ Sistema protegido com autenticação
+* ✅ Totalmente responsivo, com **menu hambúrguer no mobile**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧠 Tecnologias Utilizadas
+
+* React.js
+* React Router Dom
+* Supabase (Auth, DB, Storage)
+* CSS Puro (com media queries)
+* React Icons
+* Vite
+* Tailwind CSS (usado apenas no boleto)
+
+---
+
+## 📦 Instalação do Projeto
+
+```bash
+git clone https://github.com/seu-usuario/drip-store.git
+cd drip-store
+npm install
+npm run dev
+```
+
+---
+
+## 📁 Estrutura de Pastas
+
+```
+├── public/             # Imagens e ícones 
+src/
+├── assets/             # Imagens e ícones
+├── components/         # Header, Footer, Modal, Cards, etc
+├── pages/              # Páginas principais (Home, Carrinho, Checkout, etc)
+├── routes/             # Configuração de rotas protegidas
+└── services/           # Supabase client
+
+```
+
+---
+
+
+
+## 👨‍💻 Desenvolvedores
+
+Feito com ❤️ por [Leilla Carvalho](https://github.com/Leillac88) e [Hudson Bezerra](https://github.com/NightHudson)
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. <br>
+Sinta-se à vontade para usar, modificar e contribuir!
