@@ -34,8 +34,8 @@ Projeto completo de uma loja virtual de roupas e calçados, com funcionalidades 
 ## 📦 Instalação do Projeto
 
 ```bash
-git clone https://github.com/seu-usuario/drip-store.git
-cd drip-store
+git clone https://github.com/Leillac88/Projeto-Final-Digital-Store.git
+cd Projeto-Final-Digital-Store
 npm install
 npm run dev
 ```
