@@ -1,6 +1,6 @@
 # 💼 Drip Store - E-commerce em React
 
-Projeto completo de uma loja virtual de roupas e calçados, com funcionalidades reais de cadastro, login, carrinho de compras, checkout e visualização de pedidos.
+Projeto completo de uma loja virtual de roupas, acessórios e calçados, com funcionalidades reais de cadastro, login, carrinho de compras, checkout e visualização de pedidos.
 
 ---
 
