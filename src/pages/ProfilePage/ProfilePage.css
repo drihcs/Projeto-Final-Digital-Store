@@ -75,7 +75,6 @@
   border-radius: 8px;
 }
 
-/* Responsividade para tablets */
 @media (max-width: 768px) {
   .profile-container {
     flex-direction: column;
@@ -126,7 +125,6 @@
   }
 }
 
-/* Responsividade para mobile */
 @media (max-width: 480px) {
   .profile-container {
     padding: 0.5rem;

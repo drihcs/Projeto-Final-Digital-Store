@@ -61,7 +61,7 @@
   line-height: 1.4;
 }
 
-/* Responsividade para tablets */
+
 @media (max-width: 768px) {
   .pagamento-wrapper {
     padding: 1.5rem;
@@ -97,7 +97,6 @@
   }
 }
 
-/* Responsividade para mobile */
 @media (max-width: 480px) {
   .pagamento-wrapper {
     padding: 1rem;
@@ -141,7 +140,6 @@
   }
 }
 
-/* Para telas muito pequenas */
 @media (max-width: 320px) {
   .pagamento-wrapper {
     padding: 0.75rem;
@@ -178,7 +176,6 @@
   }
 }
 
-/* Melhoria para acessibilidade */
 @media (prefers-reduced-motion: reduce) {
   .opcao {
     transition: none;

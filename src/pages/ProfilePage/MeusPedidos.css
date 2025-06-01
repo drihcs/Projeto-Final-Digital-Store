@@ -65,7 +65,6 @@
   color: #333;
 }
 
-/* Responsividade para tablets */
 @media (max-width: 768px) {
   .meus-pedidos-wrapper {
     padding: 1.5rem;
@@ -103,7 +102,6 @@
   }
 }
 
-/* Responsividade para mobile */
 @media (max-width: 480px) {
   .meus-pedidos-wrapper {
     padding: 1rem;
@@ -145,7 +143,6 @@
   }
 }
 
-/* Para telas muito pequenas */
 @media (max-width: 320px) {
   .meus-pedidos-wrapper {
     padding: 0.75rem;
