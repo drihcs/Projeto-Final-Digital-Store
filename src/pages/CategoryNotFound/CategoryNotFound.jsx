@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SadShoe from "../../assets/SadShoe.png"
+import SadShoe from "../../../public/sadShoe.png"
 import '../CategoryNotFound/CategoryNotFound.css'
 
 export function CategoryNotFound() {
