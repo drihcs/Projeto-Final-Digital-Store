@@ -106,27 +106,33 @@ export default function CarrinhoPage() {
               ))
             )}
 
-            <div className="carrinho-opcoes">
-              <div>
+            <div className="desconto-frete">
+              <div className="bloco-input">
                 <label>Cupom de desconto</label>
-                <input type="text" placeholder="Insira seu código" />
-                <button>OK</button>
+                <div className="input-grupo">
+                  <input type="text" placeholder="Insira seu código" />
+                  <button>OK</button>
+                </div>
               </div>
-              <div>
+
+              <div className="bloco-input">
                 <label>Calcular frete</label>
-                <input type="text" placeholder="Insira seu CEP" />
-                <button>OK</button>
+                <div className="input-grupo">
+                  <input type="text" placeholder="Insira seu CEP" />
+                  <button>OK</button>
+                </div>
               </div>
             </div>
+
           </section>
 
           <aside className="resumo-box">
             <h2>RESUMO</h2>
-            <p><span>Subtotal:</span> <span>R$ {subtotal.toFixed(2)}</span></p>
-            <p><span>Frete:</span> <span>R$ {frete.toFixed(2)}</span></p>
-            <p><span>Desconto:</span> <span>R$ {desconto.toFixed(2)}</span></p>
+            <p><span className='coluna1'>Subtotal:</span> <span className='price'>R$ {subtotal.toFixed(2)}</span></p>
+            <p><span className='coluna1'>Frete:</span> <span className='price'>R$ {frete.toFixed(2)}</span></p>
+            <p><span className='coluna1'>Desconto:</span> <span className='price'>R$ {desconto.toFixed(2)}</span></p>
             <hr />
-            <p className="total"><strong>Total:</strong> <strong>R$ {total.toFixed(2)}</strong></p>
+            <p className="total"><strong>Total:</strong> <strong className='totalRosa'>R$ {total.toFixed(2)}</strong></p>
             <p className="parcelado">ou 10x de R$ {(total / 10).toFixed(2)} sem juros</p>
             <button
               onClick={() => navigate('/checkout')}
