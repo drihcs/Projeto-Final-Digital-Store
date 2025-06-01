@@ -251,12 +251,6 @@ export default function CheckoutPage() {
               </div>
               <input name="cvv" placeholder="CVV" onChange={handleChange} required={formData.forma_pagamento === 'cartao'} />
             </fieldset>
-
-            <div className="resumo-mobile">
-              <h3>Total</h3>
-              <strong>R$ {total.toFixed(2)}</strong>
-              <button className="btn-finalizar" type="submit">Realizar Pagamento</button>
-            </div>
           </form>
 
           <aside className="resumo-checkout">
