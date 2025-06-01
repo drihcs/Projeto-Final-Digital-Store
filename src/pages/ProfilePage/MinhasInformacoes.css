@@ -1,13 +1,18 @@
 .info-container {
   background: #FFFFFF;
-  width: 890px;
-  height: 466px;
-  gap: 20px;
-  top: 272px;
-  left: 449px;
+  width: 100%;
+  /* Ocupa a largura total disponível */
+  max-width: 890px;
+  /* Largura máxima para telas maiores */
+  height: auto;
+  min-height: 466px;
+  margin: 0 auto 2rem;
+  /* Centraliza horizontalmente e adiciona margem inferior */
   border-radius: 4px;
-  padding: 0.5rem;
-  margin-bottom: 2rem;
+  padding: 1.5rem;
+  /* Padding maior para melhor espaçamento */
+  box-sizing: border-box;
+  /* Garante que o padding não aumente a largura total */
 }
 
 .info-title {
@@ -19,29 +24,23 @@
   padding-bottom: 1rem;
   border-bottom: 1px solid #CCCCCC;
   color: #474747;
-  margin-top: -0.5rem;
 }
 
-.info-personal {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.75px;
-  color: #474747;
-}
-
+.info-personal,
 .info-delivery {
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.75px;
   color: #474747;
+  margin-bottom: 1rem;
+}
+
+.info-delivery {
   border-top: 1px solid #CCCCCC;
   margin-top: 2rem;
   padding-top: 1rem;
-
 }
-
 
 .info-container p {
   font-weight: 500;
@@ -49,6 +48,7 @@
   line-height: 22px;
   letter-spacing: 0.25px;
   color: #1F1F1F;
+  margin-bottom: 0.5rem;
 }
 
 .info-container strong {
@@ -57,4 +57,77 @@
   line-height: 22px;
   letter-spacing: 0.25px;
   color: #8F8F8F;
+  display: inline-block;
+  min-width: 100px;
+  /* Espaço fixo para os rótulos (ex: "Nome:") */
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .info-container {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-title {
+    font-size: 16px;
+    margin-bottom: 1.25rem;
+  }
+
+  .info-personal,
+  .info-delivery {
+    font-size: 15px;
+  }
+
+  .info-container p,
+  .info-container strong {
+    font-size: 14px;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 480px) {
+  .info-container {
+    padding: 1rem;
+    margin: 0 auto 2rem;
+    /* Centraliza e mantém margem inferior */
+    width: 95%;
+    /* Largura quase total, com pequena margem nas laterais */
+  }
+
+  .info-title {
+    font-size: 15px;
+  }
+
+  .info-personal,
+  .info-delivery {
+    font-size: 14px;
+    text-align: left;
+    /* Alinha o título à esquerda */
+  }
+
+  .info-container p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .info-container strong {
+    min-width: 80px;
+    /* Reduz o espaço dos rótulos em mobile */
+    font-size: 13px;
+  }
+}
+
+/* Telas muito pequenas (ex: iPhone 5/SE) */
+@media (max-width: 320px) {
+  .info-container {
+    padding: 0.75rem;
+  }
+
+  .info-container strong {
+    min-width: 70px;
+    /* Ajuste fino para telas menores */
+    font-size: 12px;
+  }
 }

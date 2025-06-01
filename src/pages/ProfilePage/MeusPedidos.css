@@ -64,3 +64,118 @@
   font-weight: bold;
   color: #333;
 }
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .meus-pedidos-wrapper {
+    padding: 1.5rem;
+  }
+
+  .meus-pedidos-wrapper h1 {
+    font-size: 16px;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .lista-pedidos {
+    max-width: 100%;
+    gap: 1.25rem;
+  }
+
+  .pedido-card {
+    padding: 1rem;
+  }
+
+  .pedido-card p {
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+
+  .pedido-info {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .sem-pedidos {
+    font-size: 1rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 480px) {
+  .meus-pedidos-wrapper {
+    padding: 1rem;
+  }
+
+  .meus-pedidos-wrapper h1 {
+    font-size: 14px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .lista-pedidos {
+    gap: 1rem;
+  }
+
+  .pedido-card {
+    padding: 0.875rem;
+    border-left-width: 4px;
+  }
+
+  .pedido-card p {
+    font-size: 0.85rem;
+    margin: 0.2rem 0;
+    line-height: 1.4;
+  }
+
+  .pedido-card strong {
+    font-size: 0.85rem;
+  }
+
+  .status-texto {
+    font-size: 0.85rem;
+  }
+
+  .sem-pedidos {
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+  }
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 320px) {
+  .meus-pedidos-wrapper {
+    padding: 0.75rem;
+  }
+
+  .meus-pedidos-wrapper h1 {
+    font-size: 13px;
+    margin-bottom: 1.25rem;
+  }
+
+  .pedido-card {
+    padding: 0.75rem;
+    border-left-width: 3px;
+  }
+
+  .pedido-card p {
+    font-size: 0.8rem;
+    margin: 0.15rem 0;
+  }
+
+  .pedido-card strong {
+    font-size: 0.8rem;
+  }
+
+  .status-texto {
+    font-size: 0.8rem;
+  }
+
+  .sem-pedidos {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
