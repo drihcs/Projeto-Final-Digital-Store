@@ -41,7 +41,6 @@ footer {
   gap: 35px;
   top: 115px;
   left: 80px;
-
 }
 
 .icons-sociais a {
@@ -59,7 +58,6 @@ footer {
   margin-top: 4rem;
   gap: 6.5rem;
 }
-
 
 .container-2 div {
   display: flex;
@@ -98,4 +96,191 @@ hr {
   font-size: 13px;
   line-height: 24px;
   color: #fffefe;
+}
+
+@media (max-width: 1024px) {
+  .container-logo {
+    left: 40px;
+    top: 40px;
+  }
+
+  .text-container {
+    left: 40px;
+    top: 60px;
+    width: 280px;
+  }
+
+  .icons-sociais {
+    left: 40px;
+    top: 95px;
+  }
+
+  .container-2 {
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+
+  .container-2 div {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .container-1 {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .container-logo {
+    justify-content: center;
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .text-container {
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    position: static;
+    margin: 1rem 0;
+  }
+
+  .icons-sociais {
+    justify-content: center;
+    position: static;
+    margin-top: 1.5rem;
+    gap: 25px;
+  }
+
+  .container-2 {
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 3rem;
+    width: 100%;
+  }
+
+  .container-info {
+    min-width: 150px;
+  }
+
+  .container-2 div {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .container-1 {
+    margin-bottom: 1rem;
+  }
+
+  .text-container {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 1rem;
+  }
+
+  .icons-sociais {
+    gap: 20px;
+    margin-top: 1rem;
+  }
+
+  .icons-sociais img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .container-2 {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .container-info {
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .conteudo {
+    align-items: center;
+    text-align: center;
+  }
+
+  .container-2 div {
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+
+  .conteudo a {
+    font-size: 0.85rem;
+    padding: 0.2rem 0;
+  }
+
+  .data-footer {
+    font-size: 12px;
+    margin-top: 1.5rem;
+  }
+
+  hr {
+    margin: 2rem auto 1rem;
+    width: 95%;
+  }
+}
+
+@media (max-width: 320px) {
+  footer {
+    padding: 1rem 0.5rem;
+  }
+
+  .text-container {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 0 0.5rem;
+  }
+
+  .container-2 {
+    gap: 1.5rem;
+  }
+
+  .container-info {
+    max-width: 200px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .conteudo a {
+    font-size: 0.8rem;
+  }
+
+  .icons-sociais {
+    gap: 15px;
+  }
+
+  .icons-sociais img {
+    width: 18px;
+    height: 18px;
+  }
 }

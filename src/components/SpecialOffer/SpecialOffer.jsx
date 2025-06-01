@@ -15,8 +15,16 @@ export function OfertSection() {
   return (
     <div className="container-ofert">
       <div className="image-ofert">
-        <img src={sapato} alt="Sapato" className="sapato" />
-        <img src={fundo_sapato} alt="Fundo Sapato" className="fundo-sapato" />
+        <img
+          src={sapato}
+          alt="Tênis Air Jordan edição de colecionador"
+          className="sapato"
+        />
+        <img
+          src={fundo_sapato}
+          alt="Fundo decorativo para o tênis Air Jordan"
+          className="fundo-sapato"
+        />
       </div>
       <div className="conteudo-ofert">
         <span className="title-ofert">Oferta especial</span>
