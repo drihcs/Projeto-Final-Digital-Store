@@ -100,7 +100,7 @@
 
 .filter form div {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 0.5rem;
 }
 
@@ -117,12 +117,8 @@
 .filter form label {
   font-size: 16px;
   line-height: 20px;
-  align-items: center;
   color: #474747;
-  display: flex;
-  gap: 8px;
   cursor: pointer;
-  margin-top: 2px;
 }
 
 .second {
