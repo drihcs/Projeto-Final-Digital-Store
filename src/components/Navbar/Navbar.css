@@ -1,3 +1,4 @@
+/* === Estilo padrão do navbar === */
 .navbar {
   position: relative;
   margin-left: 104px;
@@ -31,4 +32,47 @@
   font-weight: bold;
   border-bottom: 3px solid #c92071;
   padding-bottom: 2px;
+}
+
+/* === Estilo para mobile === */
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 80px;
+    /* distância do topo (ajuste conforme altura do header) */
+    right: 0;
+    width: 200px;
+    background-color: white;
+    height: 100vh;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    margin-left: 0;
+  }
+
+  .navbar.aberto {
+    transform: translateX(0%);
+  }
+
+  .navbar ul {
+    position: static;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    top: auto;
+  }
+
+  .navbar ul li {
+    width: 100%;
+  }
+
+  .navbar ul li a {
+    font-size: 1rem;
+    width: 100%;
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+  }
 }

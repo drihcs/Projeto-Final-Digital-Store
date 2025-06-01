@@ -54,3 +54,204 @@ section .main .f picture img {
   filter: invert(50%) sepia(90%) saturate(7000%) hue-rotate(319deg) brightness(78%) contrast(97%);
   transform: scale(1.05);
 }
+
+@media (max-width: 1024px) {
+  section {
+    margin-top: 4rem;
+    padding: 0 2rem;
+  }
+
+  section h2 {
+    font-size: 22px;
+  }
+
+  section .main {
+    gap: 1.5rem;
+    max-width: 600px;
+  }
+
+  section .main .f picture {
+    width: 96px;
+    height: 96px;
+    padding: 18px;
+  }
+
+  section .main .f picture img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  section h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  section .main {
+    gap: 1.2rem;
+    justify-content: space-around;
+  }
+
+  section .main .f {
+    min-width: 100px;
+    gap: 0.5rem;
+  }
+
+  section .main .f picture {
+    width: 88px;
+    height: 88px;
+    padding: 16px;
+  }
+
+  section .main .f picture img {
+    width: 56px;
+    height: 56px;
+  }
+
+  section .main .f p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+
+  section h2 {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
+  section .main {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 350px;
+    row-gap: 1.5rem;
+    min-height: 200px;
+  }
+
+  section .main .f {
+    min-width: 85px;
+    gap: 0.4rem;
+    flex: 0 0 calc(33.333% - 0.67rem);
+    max-width: 100px;
+  }
+
+  section .main .f:nth-child(4) {
+    flex: 0 0 calc(45% - 0.5rem);
+    max-width: 120px;
+    margin-left: 5%;
+  }
+
+  section .main .f:nth-child(5) {
+    flex: 0 0 calc(45% - 0.5rem);
+    max-width: 120px;
+    margin-right: 5%;
+  }
+
+  section .main .f picture {
+    width: 72px;
+    height: 72px;
+    padding: 12px;
+  }
+
+  section .main .f picture img {
+    width: 48px;
+    height: 48px;
+  }
+
+  section .main .f p {
+    font-size: 12px;
+  }
+
+  .f picture:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 320px) {
+  section {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+
+  section h2 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  section .main {
+    gap: 0.8rem;
+    max-width: 280px;
+    row-gap: 1.2rem;
+    min-height: 180px;
+  }
+
+  section .main .f {
+    min-width: 70px;
+    flex: 0 0 calc(33.333% - 0.53rem);
+    max-width: 80px;
+  }
+
+  section .main .f:nth-child(4) {
+    flex: 0 0 calc(42% - 0.4rem);
+    max-width: 90px;
+    margin-left: 8%;
+  }
+
+  section .main .f:nth-child(5) {
+    flex: 0 0 calc(42% - 0.4rem);
+    max-width: 90px;
+    margin-right: 8%;
+  }
+
+  section .main .f picture {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+
+  section .main .f picture img {
+    width: 40px;
+    height: 40px;
+  }
+
+  section .main .f p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 280px) {
+  section .main {
+    flex-direction: column;
+    gap: 1.5rem;
+    height: auto;
+  }
+
+  section .main .f {
+    flex: none;
+    max-width: none;
+    width: 100%;
+  }
+
+  section .main .f picture {
+    width: 80px;
+    height: 80px;
+  }
+
+  section .main .f p {
+    font-size: 12px;
+  }
+}

@@ -8,11 +8,12 @@ const links = [
   { path: "/pedidos", label: "Meus Pedidos" },
 ];
 
-export function NavBar() {
+export function NavBar({ menuAberto }) {
   const location = useLocation();
 
   return (
-    <div className="navbar">
+    <nav className={`navbar ${menuAberto ? "aberto" : ""}`}>
+
       <ul>
         {links.map((link, index) => (
           <li key={index}>
@@ -29,6 +30,6 @@ export function NavBar() {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 }
