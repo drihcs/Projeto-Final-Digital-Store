@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../services/supabaseClient';
 import { Header } from '../../components/Header/Header';
@@ -8,43 +8,169 @@ import './SucessoPage.css';
 export default function SucessoPage() {
   const [compra, setCompra] = useState(null);
   const [produtosResumo, setProdutosResumo] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [erro, setErro] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    carregarCompra();
+  // Função separada para carregar produtos
+  const carregarProdutosDaCompra = useCallback(async (compraId) => {
+    try {
+      const { data: itensCompra, error: errorItens } = await supabase
+        .from('compras_produtos')
+        .select(`
+          *,
+          produto:produtos(
+            id,
+            nome,
+            imagem_url,
+            preco
+          )
+        `)
+        .eq('compra_id', compraId);
+
+      if (errorItens) {
+        console.error('Erro ao buscar produtos da compra:', errorItens);
+        return;
+      }
+
+      console.log('Produtos da compra carregados:', itensCompra);
+
+      if (itensCompra && itensCompra.length > 0) {
+        const produtos = itensCompra.map(item => ({
+          ...item.produto,
+          quantidade: item.quantidade,
+          preco_unitario: item.preco_unitario
+        }));
+        setProdutosResumo(produtos);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar produtos:', error);
+    }
   }, []);
 
-  async function carregarCompra() {
-    const compraId = localStorage.getItem('ultimaCompraId');
-    if (!compraId) return;
+  // Função fallback para quando o banco falha
+  const carregarProdutosFallback = useCallback(async (compraId) => {
+    // Tentar carregar produtos mesmo com dados localStorage
+    try {
+      await carregarProdutosDaCompra(compraId);
+    } catch (error) {
+      console.warn('Não foi possível carregar produtos:', error);
+      // Continuar mesmo sem os produtos
+    }
+  }, [carregarProdutosDaCompra]);
 
-    const { data: compraData, error } = await supabase
-      .from('compras')
-      .select('*')
-      .eq('id', compraId)
-      .single();
+  useEffect(() => {
+    async function carregarCompra() {
+      try {
+        setLoading(true);
+        setErro(null);
 
-    if (error || !compraData) {
-      console.error('Erro ao carregar compra:', error?.message);
-      return;
+        console.log('=== INICIANDO CARREGAMENTO DA COMPRA ===');
+
+        // Primeiro tentar pegar do localStorage de forma mais robusta
+        let compraId = localStorage.getItem('ultimaCompraId');
+        let dadosLocalStorage = null;
+
+        // Tentar pegar dados completos do localStorage como fallback
+        try {
+          const dadosString = localStorage.getItem('ultimaCompraDados');
+          if (dadosString) {
+            dadosLocalStorage = JSON.parse(dadosString);
+            if (!compraId && dadosLocalStorage.id) {
+              compraId = dadosLocalStorage.id;
+            }
+          }
+        } catch (e) {
+          console.warn('Erro ao parsear dados do localStorage:', e);
+        }
+
+        console.log('CompraId encontrado:', compraId);
+        console.log('Dados localStorage:', dadosLocalStorage);
+
+        // Se não encontrou no localStorage, tentar URL
+        if (!compraId) {
+          const urlParams = new URLSearchParams(window.location.search);
+          compraId = urlParams.get('compraId') || urlParams.get('id');
+          console.log('CompraId da URL:', compraId);
+        }
+
+        // Se ainda não encontrou, usar dados do localStorage como fallback
+        if (!compraId && dadosLocalStorage && dadosLocalStorage.id) {
+          compraId = dadosLocalStorage.id;
+          console.log('Usando ID dos dados localStorage:', compraId);
+        }
+
+        // Se não encontrou ID de forma alguma, mostrar erro
+        if (!compraId) {
+          console.error('ERRO: Nenhum ID de compra encontrado!');
+          setErro('ID da compra não encontrado. Redirecionando para a home...');
+          setTimeout(() => navigate('/'), 3000);
+          return;
+        }
+
+        console.log('Buscando compra com ID:', compraId);
+
+        // Buscar compra no banco de dados
+        const { data: compraData, error } = await supabase
+          .from('compras')
+          .select('*')
+          .eq('id', compraId)
+          .single();
+
+        if (error) {
+          console.error('Erro ao carregar compra do banco:', error);
+
+          // Se erro no banco mas temos dados localStorage, usar como fallback
+          if (dadosLocalStorage) {
+            console.log('Usando dados do localStorage como fallback');
+            setCompra(dadosLocalStorage);
+
+            // Tentar carregar produtos mesmo assim
+            await carregarProdutosFallback(compraId);
+          } else {
+            setErro(`Erro ao carregar dados da compra: ${error.message}`);
+          }
+          return;
+        }
+
+        if (!compraData) {
+          console.error('Compra não encontrada no banco de dados');
+
+          // Usar localStorage como fallback se disponível
+          if (dadosLocalStorage) {
+            console.log('Compra não encontrada no banco, usando localStorage');
+            setCompra(dadosLocalStorage);
+            await carregarProdutosFallback(compraId);
+          } else {
+            setErro('Compra não encontrada.');
+          }
+          return;
+        }
+
+        console.log('Compra carregada com sucesso:', compraData);
+        setCompra(compraData);
+
+        // Carregar produtos da compra
+        await carregarProdutosDaCompra(compraId);
+
+      } catch (error) {
+        console.error('Erro geral ao carregar compra:', error);
+        setErro('Erro inesperado ao carregar os dados da compra.');
+      } finally {
+        setLoading(false);
+      }
     }
 
-    setCompra(compraData);
+    carregarCompra();
+  }, [navigate, carregarProdutosDaCompra, carregarProdutosFallback]);
 
-    // Carrega produtos da compra
-    const { data: itensCompra, error: errorItens } = await supabase
-      .from('compras_produtos')
-      .select('*, produto:produtos(id, nome, imagem_url)')
-      .eq('compra_id', compraId);
-
-    if (errorItens) {
-      console.error('Erro ao buscar produtos da compra:', errorItens.message);
-      return;
-    }
-
-    const produtos = itensCompra.map(item => item.produto);
-    setProdutosResumo(produtos);
-  }
+  // Função para limpar dados e voltar
+  const voltarParaHome = useCallback(() => {
+    // Limpar localStorage
+    localStorage.removeItem('ultimaCompraId');
+    localStorage.removeItem('ultimaCompraDados');
+    navigate('/');
+  }, [navigate]);
 
   return (
     <>
@@ -54,8 +180,29 @@ export default function SucessoPage() {
           <div className="icone-sucesso">🎉</div>
           <h1>Compra Realizada<br />com sucesso!</h1>
 
-          {compra ? (
+          {loading ? (
+            <div className="loading-container">
+              <p>Carregando dados da compra...</p>
+              <div style={{ background: '#f8f9fa', padding: '15px', marginTop: '20px', borderRadius: '5px' }}>
+                <p style={{ margin: 0, fontSize: '14px' }}>
+                  <strong>Aguarde...</strong> Estamos buscando os dados da sua compra.
+                </p>
+              </div>
+            </div>
+          ) : erro ? (
+            <div className="erro-container">
+              <p style={{ color: '#dc3545', fontWeight: 'bold' }}>{erro}</p>
+              <button
+                className="btn-voltar"
+                onClick={voltarParaHome}
+                style={{ marginTop: '20px' }}
+              >
+                Voltar para Home
+              </button>
+            </div>
+          ) : compra ? (
             <div className="sucesso-conteudo">
+
               <section>
                 <h3>Informações Pessoais</h3>
                 <p><strong>Nome:</strong> {compra.nome}</p>
@@ -67,14 +214,19 @@ export default function SucessoPage() {
               <section>
                 <h3>Informações de Entrega</h3>
                 {(() => {
-                  const partes = compra.endereco_entrega.split(',');
+                  // Tratamento mais robusto do endereço
+                  const endereco = compra.endereco_entrega || '';
+                  const partes = endereco.split(',').map(p => p.trim());
+
                   return (
                     <>
-                      <p><strong>Rua:</strong> {partes[0]?.trim()}</p>
-                      <p><strong>Bairro:</strong> {partes[1]?.trim()}</p>
-                      <p><strong>Cidade:</strong> {partes[2]?.trim()}</p>
-                      <p><strong>CEP:</strong> {partes[3]?.trim()}</p>
-                      {partes[4] && <p><strong>Complemento:</strong> {partes[4]?.trim()}</p>}
+                      <p><strong>Rua:</strong> {partes[0] || 'Não informado'}</p>
+                      <p><strong>Bairro:</strong> {partes[1] || 'Não informado'}</p>
+                      <p><strong>Cidade:</strong> {partes[2] || 'Não informado'}</p>
+                      <p><strong>CEP:</strong> {partes[3] || 'Não informado'}</p>
+                      {partes[4] && partes[4] !== 'undefined' && (
+                        <p><strong>Complemento:</strong> {partes[4]}</p>
+                      )}
                     </>
                   );
                 })()}
@@ -93,34 +245,56 @@ export default function SucessoPage() {
                 {produtosResumo.length > 0 ? (
                   produtosResumo.map((produto, index) => (
                     <div key={index} className="produto-item">
-                      <img src={produto.imagem_url} alt={produto.nome} />
-                      <p>{produto.nome}</p>
+                      <img
+                        src={produto.imagem_url}
+                        alt={produto.nome}
+                        onError={(e) => {
+                          e.target.src = '/placeholder-image.jpg'; // Fallback para imagem
+                        }}
+                      />
+                      <div>
+                        <p>{produto.nome}</p>
+                        {produto.quantidade && (
+                          <small>Quantidade: {produto.quantidade}</small>
+                        )}
+                      </div>
                     </div>
                   ))
                 ) : (
-                  <p>Nenhum produto encontrado.</p>
+                  <p>Carregando produtos...</p>
                 )}
 
                 <div className="total-box">
                   <p className="label">Total</p>
-                  <p className="valor">R$ {compra.total?.toFixed(2)}</p>
-                  <span className="parcelado">ou 10x de R$ {(compra.total / 10).toFixed(2)} sem juros</span>
+                  <p className="valor">R$ {compra.total ? compra.total.toFixed(2) : '0.00'}</p>
+                  <span className="parcelado">
+                    ou 10x de R$ {compra.total ? (compra.total / 10).toFixed(2) : '0.00'} sem juros
+                  </span>
                 </div>
 
-                <a
-                  className="link-imprimir"
-                  href="/boleto-fake.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visualizar Boleto
-                </a>
+                {compra.forma_pagamento === 'boleto' && (
+                  <a
+                    className="link-imprimir"
+                    href="/boleto-fake.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visualizar Boleto
+                  </a>
+                )}
               </section>
 
-              <button className="btn-voltar" onClick={() => navigate('/')}>Voltar para Home</button>
+              <button className="btn-voltar" onClick={voltarParaHome}>
+                Voltar para Home
+              </button>
             </div>
           ) : (
-            <p>Carregando dados da compra...</p>
+            <div>
+              <p>Dados da compra não encontrados.</p>
+              <button className="btn-voltar" onClick={voltarParaHome}>
+                Voltar para Home
+              </button>
+            </div>
           )}
         </div>
       </main>

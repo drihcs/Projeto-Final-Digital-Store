@@ -107,17 +107,15 @@ export default function CheckoutPage() {
       return;
     }
 
-    // ALTERAÇÃO 1: Melhor verificação de autenticação
-    // Mudança: Usar getUser() em vez de getSession() para verificação mais confiável
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
-      console.error('Erro de autenticação:', authError); // LOG PARA DEBUG
+      console.error('Erro de autenticação:', authError);
       alert('Você precisa estar logado para finalizar a compra.');
       return;
     }
 
-    console.log('Usuário autenticado:', user.id); // LOG PARA DEBUG
+    console.log('Usuário autenticado:', user.id);
 
     const { data: itensCarrinho } = await supabase
       .from('carrinho')
@@ -142,10 +140,8 @@ export default function CheckoutPage() {
 
     const enderecoCompleto = `${formData.endereco}, ${formData.bairro}, ${formData.cidade}, ${formData.cep}, ${formData.complemento}`;
 
-    // ALTERAÇÃO 2: Dados da compra preparados corretamente
-    // Mudança: Garantir que todos os campos necessários estão sendo enviados
     const dadosCompra = {
-      usuario_id: user.id, // IMPORTANTE: Campo correto para RLS
+      usuario_id: user.id,
       nome: formData.nome,
       email: formData.email,
       cpf: formData.cpf,
@@ -153,13 +149,10 @@ export default function CheckoutPage() {
       endereco_entrega: enderecoCompleto,
       forma_pagamento: formData.forma_pagamento,
       total: total
-      // REMOÇÃO: Removido 'status: pago' pois não existe na estrutura da tabela
     };
 
-    console.log('Dados da compra a serem enviados:', dadosCompra); // LOG PARA DEBUG
+    console.log('Dados da compra a serem enviados:', dadosCompra);
 
-    // ALTERAÇÃO 3: Melhor tratamento de erro na inserção
-    // Mudança: Logs mais detalhados e tratamento de erro aprimorado
     const { data: novaCompra, error } = await supabase
       .from('compras')
       .insert([dadosCompra])
@@ -167,23 +160,21 @@ export default function CheckoutPage() {
       .single();
 
     if (error) {
-      console.error('Erro detalhado ao salvar compra:', error); // LOG DETALHADO PARA DEBUG
-      console.error('Código do erro:', error.code); // CÓDIGO DO ERRO
-      console.error('Mensagem do erro:', error.message); // MENSAGEM DO ERRO
+      console.error('Erro detalhado ao salvar compra:', error);
+      console.error('Código do erro:', error.code);
+      console.error('Mensagem do erro:', error.message);
       alert(`Erro ao salvar a compra: ${error.message}`);
       return;
     }
 
     if (!novaCompra) {
-      console.error('Compra não foi criada - dados retornados:', novaCompra); // LOG PARA DEBUG
+      console.error('Compra não foi criada - dados retornados:', novaCompra);
       alert('Erro ao salvar a compra - dados não retornados.');
       return;
     }
 
-    console.log('Compra salva com sucesso:', novaCompra); // LOG PARA DEBUG
+    console.log('Compra salva com sucesso:', novaCompra);
 
-    // ALTERAÇÃO 4: Verificar se a tabela compras_produtos existe
-    // Mudança: Tratamento de erro para inserção de itens da compra
     const itens = itensCarrinho.map(item => {
       const produto = produtos.find(p => p.id === item.produto_id);
       return {
@@ -194,42 +185,58 @@ export default function CheckoutPage() {
       };
     });
 
-    console.log('Itens da compra a serem salvos:', itens); // LOG PARA DEBUG
+    console.log('Itens da compra a serem salvos:', itens);
 
-    // Tentar salvar os itens da compra
     const { error: errorItens } = await supabase
       .from('compras_produtos')
       .insert(itens);
 
     if (errorItens) {
-      console.error('Erro ao salvar itens da compra:', errorItens); // LOG PARA DEBUG
-      // Não interromper o fluxo se os itens não salvarem, pois a compra principal já foi salva
+      console.error('Erro ao salvar itens da compra:', errorItens);
     }
 
-    // ALTERAÇÃO 5: Melhor tratamento de limpeza do carrinho
-    // Mudança: Verificar se a limpeza do carrinho foi bem-sucedida
     const { error: errorLimpeza } = await supabase
       .from('carrinho')
       .delete()
       .eq('usuario_id', user.id);
 
     if (errorLimpeza) {
-      console.error('Erro ao limpar carrinho:', errorLimpeza); // LOG PARA DEBUG
-      // Não interromper o fluxo se o carrinho não for limpo
+      console.error('Erro ao limpar carrinho:', errorLimpeza);
     }
 
-    // Salvar dados da última compra
-    localStorage.setItem('ultimaCompraDados', JSON.stringify({
+    // 🔧 CORREÇÃO: Limpar localStorage antes de salvar novos dados
+    localStorage.removeItem('ultimaCompraId');
+    localStorage.removeItem('ultimaCompraDados');
+
+    // 🔧 CORREÇÃO: Salvar o ID da compra como número (não string)
+    console.log('Salvando ID da compra no localStorage:', novaCompra.id);
+    localStorage.setItem('ultimaCompraId', novaCompra.id);
+
+    // 🔧 CORREÇÃO: Salvar dados completos da compra para garantir acesso
+    const dadosCompletos = {
+      id: novaCompra.id,
       nome: formData.nome,
       cpf: formData.cpf,
-      total,
-      endereco_entrega: enderecoCompleto
-    }));
+      email: formData.email,
+      telefone: formData.celular,
+      endereco_entrega: enderecoCompleto,
+      forma_pagamento: formData.forma_pagamento,
+      total: total,
+      usuario_id: user.id
+    };
+    localStorage.setItem('ultimaCompraDados', JSON.stringify(dadosCompletos));
 
-    // ALTERAÇÃO 6: Feedback de sucesso
-    // Mudança: Mostrar mensagem de sucesso antes de navegar
+    // 🔧 CORREÇÃO: Aguardar um pouco para garantir que o localStorage foi salvo
+    console.log('Dados salvos no localStorage:');
+    console.log('- ultimaCompraId:', localStorage.getItem('ultimaCompraId'));
+    console.log('- ultimaCompraDados:', localStorage.getItem('ultimaCompraDados'));
+
     alert('Compra realizada com sucesso!');
-    navigate('/sucesso');
+
+    // 🔧 CORREÇÃO: Aguardar antes de navegar para garantir que tudo foi salvo
+    setTimeout(() => {
+      navigate('/sucesso');
+    }, 100);
   }
 
   const subtotal = carrinho.reduce((acc, item) => acc + item.produto.preco * item.quantidade, 0);
