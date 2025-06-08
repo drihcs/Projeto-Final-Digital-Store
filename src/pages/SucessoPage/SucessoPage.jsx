@@ -12,7 +12,6 @@ export default function SucessoPage() {
   const [erro, setErro] = useState(null);
   const navigate = useNavigate();
 
-  // Função separada para carregar produtos
   const carregarProdutosDaCompra = useCallback(async (compraId) => {
     try {
       const { data: itensCompra, error: errorItens } = await supabase
@@ -48,14 +47,11 @@ export default function SucessoPage() {
     }
   }, []);
 
-  // Função fallback para quando o banco falha
   const carregarProdutosFallback = useCallback(async (compraId) => {
-    // Tentar carregar produtos mesmo com dados localStorage
     try {
       await carregarProdutosDaCompra(compraId);
     } catch (error) {
       console.warn('Não foi possível carregar produtos:', error);
-      // Continuar mesmo sem os produtos
     }
   }, [carregarProdutosDaCompra]);
 
@@ -67,11 +63,9 @@ export default function SucessoPage() {
 
         console.log('=== INICIANDO CARREGAMENTO DA COMPRA ===');
 
-        // Primeiro tentar pegar do localStorage de forma mais robusta
         let compraId = localStorage.getItem('ultimaCompraId');
         let dadosLocalStorage = null;
 
-        // Tentar pegar dados completos do localStorage como fallback
         try {
           const dadosString = localStorage.getItem('ultimaCompraDados');
           if (dadosString) {
@@ -87,20 +81,17 @@ export default function SucessoPage() {
         console.log('CompraId encontrado:', compraId);
         console.log('Dados localStorage:', dadosLocalStorage);
 
-        // Se não encontrou no localStorage, tentar URL
         if (!compraId) {
           const urlParams = new URLSearchParams(window.location.search);
           compraId = urlParams.get('compraId') || urlParams.get('id');
           console.log('CompraId da URL:', compraId);
         }
 
-        // Se ainda não encontrou, usar dados do localStorage como fallback
         if (!compraId && dadosLocalStorage && dadosLocalStorage.id) {
           compraId = dadosLocalStorage.id;
           console.log('Usando ID dos dados localStorage:', compraId);
         }
 
-        // Se não encontrou ID de forma alguma, mostrar erro
         if (!compraId) {
           console.error('ERRO: Nenhum ID de compra encontrado!');
           setErro('ID da compra não encontrado. Redirecionando para a home...');
@@ -110,7 +101,6 @@ export default function SucessoPage() {
 
         console.log('Buscando compra com ID:', compraId);
 
-        // Buscar compra no banco de dados
         const { data: compraData, error } = await supabase
           .from('compras')
           .select('*')
@@ -120,12 +110,10 @@ export default function SucessoPage() {
         if (error) {
           console.error('Erro ao carregar compra do banco:', error);
 
-          // Se erro no banco mas temos dados localStorage, usar como fallback
           if (dadosLocalStorage) {
             console.log('Usando dados do localStorage como fallback');
             setCompra(dadosLocalStorage);
 
-            // Tentar carregar produtos mesmo assim
             await carregarProdutosFallback(compraId);
           } else {
             setErro(`Erro ao carregar dados da compra: ${error.message}`);
@@ -136,7 +124,6 @@ export default function SucessoPage() {
         if (!compraData) {
           console.error('Compra não encontrada no banco de dados');
 
-          // Usar localStorage como fallback se disponível
           if (dadosLocalStorage) {
             console.log('Compra não encontrada no banco, usando localStorage');
             setCompra(dadosLocalStorage);
@@ -150,7 +137,6 @@ export default function SucessoPage() {
         console.log('Compra carregada com sucesso:', compraData);
         setCompra(compraData);
 
-        // Carregar produtos da compra
         await carregarProdutosDaCompra(compraId);
 
       } catch (error) {
@@ -164,9 +150,8 @@ export default function SucessoPage() {
     carregarCompra();
   }, [navigate, carregarProdutosDaCompra, carregarProdutosFallback]);
 
-  // Função para limpar dados e voltar
   const voltarParaHome = useCallback(() => {
-    // Limpar localStorage
+
     localStorage.removeItem('ultimaCompraId');
     localStorage.removeItem('ultimaCompraDados');
     navigate('/');
@@ -214,7 +199,7 @@ export default function SucessoPage() {
               <section>
                 <h3>Informações de Entrega</h3>
                 {(() => {
-                  // Tratamento mais robusto do endereço
+
                   const endereco = compra.endereco_entrega || '';
                   const partes = endereco.split(',').map(p => p.trim());
 
@@ -249,7 +234,7 @@ export default function SucessoPage() {
                         src={produto.imagem_url}
                         alt={produto.nome}
                         onError={(e) => {
-                          e.target.src = '/placeholder-image.jpg'; // Fallback para imagem
+                          e.target.src = '/placeholder-image.jpg';
                         }}
                       />
                       <div>

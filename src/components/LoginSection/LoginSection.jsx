@@ -1,10 +1,8 @@
 import './LoginSection.css'
 import Gmail from '../../assets/gmail.png'
 import Face from '../../assets/face.png'
-
 import Login1 from '../../../public/login1.png'
 import Login2 from '../../../public/login2.png'
-
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../services/supabaseClient.js'
@@ -29,7 +27,6 @@ export function SectionLogin() {
             return
         }
 
-        // ✅ Redireciona para rota protegida
         navigate("/pedidos/meus-pedidos")
     }
 

@@ -1,7 +1,6 @@
 import "./ProductPage.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import WhiteSneaker from '../../../public/tenis1.png';
 import BlueSneaker from '../../../public/tenis2.png';
 import LemonSneaker from '../../../public/tenis3.png';
@@ -178,23 +177,18 @@ export function ProductPage() {
   const [sortOption, setSortOption] = useState("mais-relevantes");
   const [filteredAndSortedProducts, setFilteredAndSortedProducts] = useState(initialProducts);
   const [showFilters, setShowFilters] = useState(false);
-
-  // Estados para os filtros
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedGenders, setSelectedGenders] = useState([]);
 
-  // Função para normalizar e converter preços para números
   const parsePrice = (priceString) => {
     if (!priceString) return 0;
     return parseFloat(priceString.replace("R$", "").replace(/\./g, "").replace(",", "."));
   };
 
-  // ----- Lógica de Filtragem e Ordenação Principal -----
   useEffect(() => {
     let currentProducts = [...initialProducts];
 
-    // 1. Aplicar Filtros
     if (selectedBrands.length > 0) {
       currentProducts = currentProducts.filter(product =>
         selectedBrands.includes(product.marca)
@@ -213,7 +207,6 @@ export function ProductPage() {
       );
     }
 
-    // 2. Aplicar Ordenação
     switch (sortOption) {
       case "menor-preco":
         currentProducts.sort((a, b) => {
@@ -236,8 +229,6 @@ export function ProductPage() {
 
     setFilteredAndSortedProducts(currentProducts);
   }, [sortOption, selectedBrands, selectedCategories, selectedGenders]);
-
-  // ----- Manipuladores de Evento -----
 
   const handleSortChange = (event) => {
     setSortOption(event.target.value);

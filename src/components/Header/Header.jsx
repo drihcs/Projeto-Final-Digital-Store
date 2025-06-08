@@ -9,6 +9,7 @@ import { CartModal } from "../CartModal/CartModal";
 import { supabase } from "../../services/supabaseClient.js";
 
 export function Header() {
+  const [searchTerm, setSearchTerm] = useState("");
   const [showCartModal, setShowCartModal] = useState(false);
   const [menuAberto, setMenuAberto] = useState(false);
   const [user, setUser] = useState(null);
@@ -51,7 +52,18 @@ export function Header() {
       <div className="heading">
         <Logo />
         <div className="search-container">
-          <input type="text" placeholder="Pesquisar produto..." />
+          <input
+            type="text"
+            placeholder="Pesquisar produto..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                navigate(`/buscar?q=${encodeURIComponent(searchTerm)}`);
+              }
+            }}
+          />
+
           <img className="search-icon" src={Search} alt="Ícone de pesquisa" />
         </div>
         <div>
@@ -87,7 +99,6 @@ export function Header() {
             onClick={toggleCartModal}
           />
 
-          {/* Botão hamburguer para mobile */}
           <button
             className={`menu-toggle ${menuAberto ? 'active' : ''}`}
             onClick={toggleMenu}

@@ -18,28 +18,22 @@ body {
   font-weight: bold;
 }
 
-/* Adicione no final do arquivo: */
 
-/* Media Queries para responsividade */
 @media (max-width: 768px) {
   body {
     padding: 0 10px;
-    /* Evita conteúdo colado nas bordas */
   }
 
-  /* Ajustes no header */
   header {
     flex-direction: column;
     padding: 10px 0;
   }
 
-  /* Menu vira coluna em mobile */
   nav ul {
     flex-direction: column;
     gap: 10px;
   }
 
-  /* Ajusta tamanho da logo */
   .logo img {
     width: 120px;
   }
@@ -47,9 +41,7 @@ body {
 
 @media (max-width: 480px) {
 
-  /* Ajustes adicionais para telas muito pequenas */
   .search-bar input {
     width: 100%;
-    /* Barra de pesquisa ocupa toda a largura */
   }
 }

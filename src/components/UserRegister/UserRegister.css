@@ -169,9 +169,6 @@ button:hover {
   background-color: #991956;
 }
 
-/* Media queries para responsividade */
-
-/* Tablets grandes */
 @media (max-width: 768px) {
   .container {
     padding: 1rem 0.5rem;
@@ -205,7 +202,6 @@ button:hover {
   }
 }
 
-/* Tablets pequenos */
 @media (max-width: 600px) {
   .container {
     padding: 1rem 0.25rem;
@@ -261,7 +257,6 @@ button:hover {
   }
 }
 
-/* Smartphones */
 @media (max-width: 480px) {
   .container {
     padding: 0.75rem 0.125rem;
@@ -331,7 +326,6 @@ button:hover {
   }
 }
 
-/* Smartphones muito pequenos */
 @media (max-width: 320px) {
   .container {
     padding: 0.5rem 0;

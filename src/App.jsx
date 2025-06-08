@@ -9,11 +9,9 @@ function App() {
     supabase.auth.getSession().then(({ data }) => {
       if (data?.session?.user) {
         console.log("Usuário logado:", data.session.user);
-        // Aqui você pode salvar o usuário num contexto global, se quiser
       }
     });
 
-    // Mantém a sessão atualizada (ex: auto-refresh do token)
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user) {
         console.log("Mudança de login:", session.user);

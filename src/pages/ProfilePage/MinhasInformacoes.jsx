@@ -19,7 +19,6 @@ export default function MinhasInformacoes() {
         return;
       }
 
-      // Busca os dados na tabela "usuarios" pelo ID do usuário autenticado
       const { data, error } = await supabase
         .from("usuarios")
         .select("*")

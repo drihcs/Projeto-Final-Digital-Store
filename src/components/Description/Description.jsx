@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import SizeButtonShoes from '../SizeButton/SizeButton';
 import { supabase } from '../../services/supabaseClient';
-
 import Tenis1 from '../../../public/detalhes.png';
 
 const coresFundo = [
@@ -37,11 +36,10 @@ export function DescProduct() {
             return;
         }
 
-        // Buscar o produto no Supabase pela descrição
         const { data: produto, error } = await supabase
             .from('produtos')
             .select('*')
-            .ilike('nome', '%Tênis Nike Air Force 1%') // ou outra descrição exata
+            .ilike('nome', '%Tênis Nike Air Force 1%')
             .limit(1)
             .single();
 
@@ -55,7 +53,6 @@ export function DescProduct() {
             return;
         }
 
-        // Inserir no carrinho
         const { error: insertError } = await supabase.from('carrinho').insert([
             {
                 usuario_id: user.id,
@@ -72,7 +69,6 @@ export function DescProduct() {
         }
     }
 
-
     return (
         <div className='color-background'>
             <div className='containerDP'>
@@ -83,14 +79,14 @@ export function DescProduct() {
                     <div className='imgDescProd'>
                         <div className='imagemGrande' style={{ backgroundColor: coresFundo[indiceCor].cor }}>
                             <img src={Tenis1} alt="" />
-                            {/* Botões de navegação */}
+
                             <div className='btn-slide'>
                                 <FontAwesomeIcon icon={faChevronLeft} className="botaoNavegacao" onClick={anteriorCor} />
                                 <FontAwesomeIcon icon={faChevronRight} className="botaoNavegacao" onClick={proximaCor} />
 
                             </div>
                         </div>
-                        {/* Miniaturas de imagens (alteram o slide de cor) */}
+
                         <div className='miniImagens'>
                             {coresFundo.map((cor, index) => (
                                 <img key={index} onClick={() => setIndiceCor(index)} src={Tenis1} className={`item${index + 1}`} alt="" />

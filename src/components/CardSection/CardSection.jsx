@@ -1,7 +1,6 @@
 import "./CardSection.css";
 import { Link } from "react-router-dom";
 import { ButtonCard } from "../Buttons/Button";
-
 import collection1 from "../../../public/collection1.png";
 import collection2 from "../../../public/collection2.png";
 import collection3 from "../../../public/collection3.png";

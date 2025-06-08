@@ -204,15 +204,12 @@ export default function CheckoutPage() {
       console.error('Erro ao limpar carrinho:', errorLimpeza);
     }
 
-    // 🔧 CORREÇÃO: Limpar localStorage antes de salvar novos dados
     localStorage.removeItem('ultimaCompraId');
     localStorage.removeItem('ultimaCompraDados');
 
-    // 🔧 CORREÇÃO: Salvar o ID da compra como número (não string)
     console.log('Salvando ID da compra no localStorage:', novaCompra.id);
     localStorage.setItem('ultimaCompraId', novaCompra.id);
 
-    // 🔧 CORREÇÃO: Salvar dados completos da compra para garantir acesso
     const dadosCompletos = {
       id: novaCompra.id,
       nome: formData.nome,
@@ -226,14 +223,12 @@ export default function CheckoutPage() {
     };
     localStorage.setItem('ultimaCompraDados', JSON.stringify(dadosCompletos));
 
-    // 🔧 CORREÇÃO: Aguardar um pouco para garantir que o localStorage foi salvo
     console.log('Dados salvos no localStorage:');
     console.log('- ultimaCompraId:', localStorage.getItem('ultimaCompraId'));
     console.log('- ultimaCompraDados:', localStorage.getItem('ultimaCompraDados'));
 
     alert('Compra realizada com sucesso!');
 
-    // 🔧 CORREÇÃO: Aguardar antes de navegar para garantir que tudo foi salvo
     setTimeout(() => {
       navigate('/sucesso');
     }, 100);
