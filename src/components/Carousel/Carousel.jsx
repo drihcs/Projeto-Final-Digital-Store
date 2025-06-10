@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Carousel.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-import { ButtonRosa } from "../Buttons/Button";
+import { ButtonSee } from "../Buttons/Button";
 import "swiper/css";
 import "swiper/css/pagination";
 import TenisSlide from '../../../public/White-Sneakers.png';
@@ -65,7 +65,7 @@ export function Carousel() {
               <h1>{slide.subtitle}</h1>
               <p className="text-responsive">{slide.description}</p>
               <Link to="/products">
-                <ButtonRosa />
+                <ButtonSee />
               </Link>
             </div>
             <img

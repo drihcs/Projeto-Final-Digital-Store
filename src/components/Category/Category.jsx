@@ -7,7 +7,7 @@ import Tenis from "../../assets/sneakers.svg";
 
 import "./Category.css";
 
-export function Section() {
+export function Category() {
   return (
     <>
       <div className="color-bg">
@@ -61,4 +61,4 @@ export function Section() {
   );
 }
 
-export default Section;
+export default Category;

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import './ColorShoes.css'
+import './ColorButtons.css'
 
 export default function Stars() {
-    const [selectedColor, setSelectedColor] = useState(null); 
-    const colorShoes = ["#6FEEFF", "#FF6969", "#5E5E5E", "#6D70B7"]; 
+    const [selectedColor, setSelectedColor] = useState(null);
+    const colorShoes = ["#6FEEFF", "#FF6969", "#5E5E5E", "#6D70B7"];
 
     const handleColorSelection = (color) => {
-        setSelectedColor(color === selectedColor ? null : color); 
+        setSelectedColor(color === selectedColor ? null : color);
     };
 
     return (

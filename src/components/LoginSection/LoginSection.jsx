@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../services/supabaseClient.js'
 
-export function SectionLogin() {
+export function LoginSection() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(null)
@@ -71,8 +71,8 @@ export function SectionLogin() {
                             <button onClick={() => supabase.auth.signInWithOAuth({ provider: 'google' })}>
                                 <img src={Gmail} alt="Login com Google" />
                             </button>
-                            <button onClick={() => supabase.auth.signInWithOAuth({ provider: 'facebook' })}>
-                                <img src={Face} alt="Login com Facebook" />
+                            <button disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>
+                                <img src={Face} alt="Login com Facebook (indisponível)" />
                             </button>
                         </div>
                     </div>

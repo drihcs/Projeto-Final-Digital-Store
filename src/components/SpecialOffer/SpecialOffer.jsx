@@ -1,11 +1,11 @@
 import "./SpecialOffer.css";
-import { ButtonRosa } from "../Buttons/Button";
+import { ButtonSee } from "../Buttons/Button";
 import { useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom";
-import sapato from "../../../public/sapato.png";
-import fundo_sapato from "../../../public/fundo_sapato.png";
+import SpecialTenis from "../../../public/SpecialTenis.png";
+import bgShoes from "../../../public/bg-shoes.png";
 
-export function OfertSection() {
+export function SpecialOffer() {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -16,12 +16,12 @@ export function OfertSection() {
     <div className="container-ofert">
       <div className="image-ofert">
         <img
-          src={sapato}
+          src={SpecialTenis}
           alt="Tênis Air Jordan edição de colecionador"
           className="sapato"
         />
         <img
-          src={fundo_sapato}
+          src={bgShoes}
           alt="Fundo decorativo para o tênis Air Jordan"
           className="fundo-sapato"
         />
@@ -33,7 +33,7 @@ export function OfertSection() {
           Esse é o tênis ideal para quem ama estilo, exclusividade e conforto. O Air Jordan edição de colecionador combina design marcante com performance. Aproveite essa chance única de garantir o seu com desconto exclusivo. Oferta válida por tempo limitado ou enquanto durar o estoque.
         </p>
         <NavLink to="/products">
-          <ButtonRosa />
+          <ButtonSee />
         </NavLink>
       </div>
     </div>

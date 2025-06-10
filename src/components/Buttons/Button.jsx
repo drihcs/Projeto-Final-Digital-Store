@@ -9,10 +9,10 @@ export function Button({ children, className }) {
   );
 }
 
-export function ButtonCard() {
+export function ButtonOffer() {
   return <Button className="button-offer">Comprar</Button>;
 }
 
-export function ButtonRosa() {
+export function ButtonSee() {
   return <Button className="button-see">Ver Oferta</Button>;
 }

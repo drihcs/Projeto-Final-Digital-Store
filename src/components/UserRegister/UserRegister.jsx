@@ -2,7 +2,7 @@ import './UserRegister.css';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../services/supabaseClient.js';
 
-export function UserCad() {
+export function UserRegister() {
     const navigate = useNavigate();
 
     async function handleCreateUser(e) {

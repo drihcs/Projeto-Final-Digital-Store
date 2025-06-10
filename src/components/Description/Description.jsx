@@ -1,11 +1,11 @@
 import './Description.css';
 import React, { useState } from 'react';
-import Star from '../Stars/Stars';
+import Star from '../Classifcation/Stars';
 import { FaStar } from 'react-icons/fa';
-import ColorShoes from '../ColorsShoes/ColorShoes';
+import ColorButtons from '../Buttons/ColorButtons/ColorButtons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import SizeButtonShoes from '../SizeButton/SizeButton';
+import SizeButtonShoes from '../Buttons/SizeButton/SizeButton';
 import { supabase } from '../../services/supabaseClient';
 import Tenis1 from '../../../public/detalhes.png';
 
@@ -17,7 +17,7 @@ const coresFundo = [
     { cor: '#E8DFCF' }
 ];
 
-export function DescProduct() {
+export function Description() {
     const [indiceCor, setIndiceCor] = useState(0);
 
     const proximaCor = () => {
@@ -113,7 +113,7 @@ export function DescProduct() {
                         </div>
                         <h4 className='coresProduto'>Cores</h4>
                         <div className='cores'>
-                            <ColorShoes />
+                            <ColorButtons />
                         </div>
                         <div>
                             <button className='btn-comprar' onClick={adicionarAoCarrinho}>
@@ -127,4 +127,4 @@ export function DescProduct() {
     )
 }
 
-export default DescProduct;
+export default Description;
